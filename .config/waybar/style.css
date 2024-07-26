@@ -1,0 +1,76 @@
+* {
+  font-family:
+    JetBrainsMono Nerd Font,
+    sans-serif;
+  font-size: 14;
+  font-weight: 500;
+}
+
+window#waybar {
+  border: 3px;
+  background-color: transparent;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 5px 5px 2px 5px;
+  border-radius:0px;
+}
+
+button {
+  background-color: #000;
+  border: 3px;
+  border-radius: 2px;
+  transition: background ease-in-out 0.2s;
+}
+
+button:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+#workspaces button {
+  padding: 0;
+}
+
+#workspaces button label {
+  background: rgba(255, 255, 255, 0.14);
+  font-size: 0;
+  color: transparent;
+  min-width: 10px;
+  min-height: 10px;
+  margin: calc(1rem - 2px) 0.8rem;
+  padding: 1px;
+  border-radius: 3px;
+}
+
+#workspaces button.persistent label {
+  padding: 0;
+  background: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+#workspaces button.focused label {
+  background: rgba(255, 255, 255, 0.87);
+}
+
+#workspaces button.urgent label {
+  background: #e36d6d;
+}
+
+.modules-right widget > * {
+  padding: 0 0.8em;
+
+}
+
+widget #tray {
+  font-size: 1; 
+  margin-right: 12px;
+  padding: 0;
+}
+
+#cpu, #power-profiles-daemon, #memory ,#temperature, #tray, #clock, #backlight, #battery, #network, #pulseaudio {
+ margin: 5px 5px 0px 5px;
+  background-color: #1e1e2e;
+  border-radius: 5px;
+}
+
+#battery.critical {
+  background: rgba(218, 88, 88, 0.3);
+}

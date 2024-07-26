@@ -1,0 +1,192 @@
+input {
+
+  keyboard {
+    xkb {
+      layout "us"
+    }
+    repeat-delay 300
+    repeat-rate 80
+  }
+
+  touchpad {
+    dwt
+    dwtp
+    natural-scroll
+    accel-speed 0.5
+    tap
+  }
+
+  trackpoint {
+    accel-speed 0.0
+  }
+}
+
+output "eDP-1" {
+  mode "2560x1440@60.012"
+  scale 1
+  transform "normal"
+  position x=0 y=0
+}
+
+
+layout {
+  gaps 12
+  center-focused-column "never"
+
+  preset-column-widths {
+    proportion 0.25
+    proportion 0.5
+    proportion 0.75
+    proportion 1.0
+  }
+
+  default-column-width {}
+
+  focus-ring {
+    width 2
+    active-color "hsla(251, 86%, 64%, 0.80)"
+    inactive-color "hsla(251, 86%, 64%, 0.10)"
+  }
+
+  border {
+    off
+    width 4
+    active-color "#ffc87f"
+    inactive-color "#505050"
+  }    
+}
+
+cursor {
+  xcursor-theme "phinger-cursors-light"
+  xcursor-size 24
+}
+
+spawn-at-startup "waybar"
+spawn-at-startup "clipman"
+spawn-at-startup "ulauncher" "--hide-window"
+spawn-at-startup "warp-taskbar"
+spawn-at-startup "swaybg" "-i" "/home/rahul/Pictures/wallpaper/3.png"
+spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
+spawn-at-startup "/usr/lib/polkit-kde-authentication-agent-1"
+screenshot-path "~/Pictures/screenshots/%Y-%m-%d %H-%M-%S.png"
+
+environment {
+  QT_QPA_PLATFORM "wayland"
+  DISPLAY null
+}
+
+animations {
+}
+
+prefer-no-csd
+
+hotkey-overlay {
+  skip-at-startup
+}
+
+window-rule {
+  geometry-corner-radius 8
+  clip-to-geometry true
+}
+
+window-rule {
+  match app-id="kitty"
+  draw-border-with-background false
+}
+
+
+window-rule {
+  match app-id="ulauncher"
+  focus-ring {
+    off
+    width 4
+    active-color "#7fc8ff"
+    inactive-color "#505050"
+  }
+
+}
+
+binds {
+  Mod+S { show-hotkey-overlay; }
+  Mod+Q { close-window; }
+  Mod+O { spawn "nautilus"; }
+  Mod+Return { spawn "kitty"; }
+  Mod+Space { spawn "ulauncher-toggle"; }
+  Mod+Shift+Space { spawn "ulauncher" "--hide-window"; }
+
+  Alt+P { spawn "wl-color-picker";}
+  Alt+W { spawn "brave" "--ozone-platform=wayland"; }
+  Alt+S { spawn "spotify" "--ozone-platform=wayland";}
+  Alt+V { spawn "cage" "/var/lib/flatpak/exports/bin/org.videolan.VLC";}
+  Alt+E { spawn "cage" "/var/lib/flatpak/exports/bin/com.discordapp.Discord";}
+  Alt+M { spawn "cage" "/var/lib/flatpak/exports/bin/io.github.thaunknown.miru";}
+  Alt+L { spawn "swaylock" "--image" "Pictures/wallpaper/3.png" "--effect-blur" "10x8" "--clock";}
+
+  Print { screenshot; }
+  Ctrl+Print { screenshot-screen; }
+  Alt+Print { screenshot-window; }
+
+  Mod+Shift+E { quit; }
+  Mod+Shift+P { power-off-monitors; }
+
+  XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.05+"; }
+  XF86AudioLowerVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.05-"; }
+  XF86AudioMute allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
+  XF86AudioMicMute allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
+
+  Xf86MonBrightnessUp allow-when-locked=true { spawn "brightnessctl" "set" "+5%"; }
+  Xf86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "set" "5%-"; }
+  Alt+Prior allow-when-locked=true { spawn "light" "-A" "1"; }
+  Alt+Next allow-when-locked=true { spawn "light" "-U" "1"; }
+
+  Mod+L { focus-column-right-or-first; }
+  Mod+H { focus-column-left-or-last; }
+
+  Mod+J { focus-window-or-workspace-down;}
+  Mod+K { focus-window-or-workspace-up; }
+
+  Mod+Shift+L { move-column-right; }
+  Mod+Shift+H { move-column-left; }
+
+  Mod+Shift+J { move-window-down-or-to-workspace-down; }
+  Mod+Shift+K { move-window-up-or-to-workspace-up; }
+
+  Mod+9 { focus-column-first; }
+  Mod+0  { focus-column-last; }
+  Mod+Shift+9 { move-column-to-first; }
+  Mod+Shift+0  { move-column-to-last; }
+
+  Mod+WheelScrollDown cooldown-ms=150 { focus-workspace-down; }
+  Mod+WheelScrollUp cooldown-ms=150 { focus-workspace-up; }
+  Mod+Alt+WheelScrollDown cooldown-ms=150 { move-column-to-workspace-down; }
+  Mod+Alt+WheelScrollUp cooldown-ms=150 { move-column-to-workspace-up; }
+
+  Mod+WheelScrollRight cooldown-ms=150 { focus-column-right; }
+  Mod+WheelScrollLeft cooldown-ms=150 { focus-column-left; }
+  Mod+Alt+WheelScrollRight cooldown-ms=150 { move-column-right; }
+  Mod+Alt+WheelScrollLeft cooldown-ms=150 { move-column-left; }
+
+  Mod+Shift+WheelScrollDown cooldown-ms=150 { focus-column-right; }
+  Mod+Shift+WheelScrollUp cooldown-ms=150 { focus-column-left; }
+  Mod+Ctrl+Shift+WheelScrollDown cooldown-ms=150 { move-column-right; }
+  Mod+Ctrl+Shift+WheelScrollUp cooldown-ms=150 { move-column-left; }
+
+  Mod+TouchpadScrollDown { spawn "light" "-A" "1"; }
+  Mod+TouchpadScrollUp   { spawn "light" "-U" "1"; }
+
+  Mod+Comma  { consume-or-expel-window-left; }
+  Mod+Period { consume-or-expel-window-right; }
+
+  Mod+R { switch-preset-column-width; }
+  Mod+Shift+R { reset-window-height; }
+  Mod+F { maximize-column; }
+  Mod+Shift+F { fullscreen-window; }
+  Mod+C { center-column; }
+
+  Mod+Minus { set-column-width "-10%"; }
+  Mod+Equal { set-column-width "+10%"; }
+
+  Mod+Shift+Minus { set-window-height "-10%"; }
+  Mod+Shift+Equal { set-window-height "+10%"; }
+
+}

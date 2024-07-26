@@ -1,0 +1,113 @@
+{
+  "position": "top",
+    "height": 22,
+    "spacing": 0,
+    "layer": "bottom",
+    "fixed-center": true,
+    "modules-left": ["sway/workspaces",  "sway/window"],
+    "modules-center": [],
+    "modules-right": ["network", "pulseaudio", "battery", "backlight", "cpu", "memory", "temperature", "power-profiles-daemon", "clock", "tray"],
+    "sway/window": {
+      "max-length": 50,
+      "max-length-mode": "middle",
+      "tooltip": true
+    },
+    "sway/workspaces": {
+      "disable-scroll": false,
+      "all-outputs": false,
+      "format": "",
+      "persistent_workspaces": {
+        "1": ["eDP-1", "DP-3"],
+        "2": ["eDP-1", "DP-3"],
+        "3": ["eDP-1", "DP-3"],
+        "4": ["eDP-1", "DP-3"],
+        "5": ["eDP-1", "DP-3"],
+        "6": ["DP-1", "DP-3"],
+        "7": ["DP-1"],
+        "8": ["DP-1"],
+        "9": ["DP-1"],
+        "10": ["DP-1"]
+      }
+    },
+    "tray": {
+      "spacing": 0
+    },
+    "clock": {
+      "timezone": "Asia/Kolkata",
+      "format": "󰅐 {:%a %H:%M}",
+      "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+      "format-alt": "󰅐 {:%a %d.%m.%Y %H:%M}"
+    },
+    "cpu": {
+      "format": "󰘚 {usage}%",
+      "tooltip": true
+    },
+    "memory": {
+      "format": "󰍛 {}%"
+    },
+    "temperature": {
+      "critical-threshold": 70,
+      "interval": 3,
+      "format": "{icon} {temperatureC}°C",
+      "format-icons": ["󱃃", "󰔏", "󱃂"]
+    },
+    "backlight": {
+      "format": "{icon} {percent}%",
+      "format-icons": ["󰛩", "󱩎", "󱩏", "󱩐", "󱩑", "󱩒", "󱩓", "󱩔", "󱩕", "󱩖", "󰛨"],
+      "on-click": "light -S 0.1",
+      "on-scroll-up": "brightnessctl set +5%",
+      "on-scroll-down": "brightnessctl set 5%-"
+    },
+    "battery": {
+      "interval": 10,
+      "states": {
+        "critical": 25
+      },
+      "format": "{icon} {capacity}%",
+      "format-charging": "󰂄 {capacity}%",
+      "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
+    },
+    "network": {
+      "format-wifi": "{icon} {essid}",
+      "tooltip-format-wifi": "Signal strength: {signalStrength}%\nLocal IP: {ipaddr}\nGateway: {gwaddr}",
+      "format-ethernet": "󰈀 {ifname}",
+      "tooltip-format": "Local IP: {ipaddr}\nGateway: {gwaddr}",
+      "format-linked": "󰀦 {ifname} (No IP)",
+      "format-disconnected": "󰀦 {ifname}",
+      "format-alt": "{ipaddr}/{cidr} - {bandwidthDownBits}",
+      "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"]
+    },
+    "pulseaudio": {
+      "scroll-step": 1,
+      "format": "{icon} {volume}% {format_source}",
+      "format-bluetooth": "{icon} {volume}%  {format_source}",
+      "format-bluetooth-muted": "<span>󰖁</span> {volume}%  {format_source}",
+      "format-muted": "󰖁 {volume}% {format_source}",
+      "format-source": "󰍬",
+      "format-source-muted": "󰍭",
+      "format-icons": {
+        "headphone": "󰋋",
+        "default": ["󰕿", "󰖀", "󰕾"],
+        "headphone": "",
+        "hands-free": "",
+        "headset": "󰋋",
+      },
+      "on-click": "pactl set-sink-mute 0 toggle",
+      "on-click-middle": "pavucontrol",
+      "on-click-right": "pactl set-source-mute 0 toggle"
+    },
+    "power-profiles-daemon": {
+  "format": "{icon}",
+  "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+  "tooltip": true,
+  "format-icons": {
+    "default": "󱐋",
+    "performance": "󱐋 High",
+    "balanced": "󱓝 Base",
+    "power-saver": "󰌪 Save"
+  }  
+}
+}
+
+
+
