@@ -28,7 +28,6 @@ output "eDP-1" {
   position x=0 y=0
 }
 
-
 layout {
   gaps 12
   center-focused-column "never"
@@ -61,11 +60,13 @@ cursor {
   xcursor-size 24
 }
 
+spawn-at-startup "sh" "-c" "aplay $HOME/.config/niri/startup.wav"
 spawn-at-startup "waybar"
-spawn-at-startup "clipman"
 spawn-at-startup "ulauncher" "--hide-window"
 spawn-at-startup "warp-taskbar"
-spawn-at-startup "swaybg" "-i" "/home/rahul/Pictures/wallpaper/3.png"
+spawn-at-startup "swaybg" "-i" "/home/rahul/.config/niri/bg/3.png"
+// spawn-at-startup "killall" "mpvpaper"
+// spawn-at-startup "sh" "-c" "mpvpaper -f -o 'loop no-audio' DP-1 $HOME/.config/niri/bg/{{ .selected_background }}"
 spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
 spawn-at-startup "/usr/lib/polkit-kde-authentication-agent-1"
 screenshot-path "~/Pictures/screenshots/%Y-%m-%d %H-%M-%S.png"
@@ -85,7 +86,7 @@ hotkey-overlay {
 }
 
 window-rule {
-  geometry-corner-radius 10
+  geometry-corner-radius 8
   clip-to-geometry true
 }
 
@@ -93,6 +94,7 @@ window-rule {
   match app-id="kitty"
   draw-border-with-background false
 }
+
 
 
 window-rule {
