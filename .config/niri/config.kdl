@@ -107,6 +107,7 @@ window-rule {
 
 binds {
   Mod+S { show-hotkey-overlay; }
+  Mod+Shift+Q { close-window; }
   Mod+Q { close-window; }
   Mod+O { spawn "nautilus"; }
   Mod+Return { spawn "kitty"; }
