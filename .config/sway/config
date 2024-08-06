@@ -1,21 +1,13 @@
-
-for_window [class="^.*"] border pixel 2
-
 set $mod Mod4
-font pango:JetBrains Mono Bold 14
+font pango:JetBrains Mono Bold 15
 
-exec --no-startup-id xset r rate 200 80
-exec_always --no-startup-id picom --config ~/.config/picom/picom.conf
-exec --no-startup-id dex --autostart --environment i3
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+exec --no-startup-id dex --autostart --environment sway
+exec --no-startup-id xss-lock --transfer-sleep-lock -- swaylock --nofork
 exec --no-startup-id xautolock -time 15 -locker "systemctl suspend"
-exec --no-startup-id /usr/lib/kdeconnectd
-exec --no-startup-id kdeconnect-indicator
 exec_always killall polybar
-exec_always --no-startup-id ~/.config/polybar/launch_polybar.sh
+exec_always --no-startup-id waybar
 exec --no-startup-id nm-applet
 exec --no-startup-id xinput set-prop 14 'libinput Natural Scrolling Enabled' 1
-exec --no-startup-id xinput set-prop 14 'libinput Accel Speed' 0.4
 exec --no-startup-id ulauncher --hide-window
 
 bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
@@ -25,19 +17,12 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
-set $refresh_i3status killall -SIGUSR1 i3status
-
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
-
-bindsym $mod+d exec --no-startup-id dmenu_run -nb '#1e1e2e' -sf '#1e1e2e' -sb '#f0fdff' -nf '#f0fdff' 
 # move tiling windows via drag & drop by left-clicking into the title bar,
 # or left-clicking anywhere into the window while holding the floating modifier.
 
-
-tiling_drag modifier titlebar
-
-bindsym Mod1+l exec i3lock
+bindsym Mod1+l exec swaylock
 bindsym Mod1+w exec brave
 bindsym $mod+Return exec kitty
 bindsym $mod+space exec ulauncher-toggle
@@ -200,18 +185,10 @@ client.placeholder       $overlay0 $base  $text    $overlay0  $overlay0
 client.background        $base
 
 
-# Set inner gaps (space between windows)
-# gaps inner 4
-gaps inner 4
-
-# Set outer gaps (space between windows and screen edges)
-gaps outer 0
-
-
 ## Screenshots
-bindsym Print exec --no-startup-id maim "/home/$USER/Pictures/$(date).png"
-bindsym $mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) "/home/$USER/Pictures/$(date).png"
-bindsym Shift+Print exec --no-startup-id maim --select "/home/$USER/Pictures/$(date).png"
+bindsym Print exec --no-startup-id maim "/home/$USER/Pictures/$(date)"
+bindsym $mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) "/home/$USER/Pictures/$(date)"
+bindsym Shift+Print exec --no-startup-id maim --select "/home/$USER/Pictures/$(date)"
 
 ## Clipboard Screenshots
 bindsym Ctrl+Print exec --no-startup-id maim | xclip -selection clipboard -t image/png
