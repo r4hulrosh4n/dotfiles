@@ -6,7 +6,7 @@
     "fixed-center": true,
     "modules-left": ["sway/workspaces",  "sway/window"],
     "modules-center": [],
-    "modules-right": ["network", "pulseaudio", "battery", "backlight", "cpu", "memory", "temperature", "power-profiles-daemon", "clock", "tray"],
+    "modules-right": ["network", "pulseaudio", "battery", "backlight", "cpu", "memory", "temperature", "clock", "tray"],
     "sway/window": {
       "max-length": 50,
       "max-length-mode": "middle",
@@ -39,11 +39,11 @@
       "format-alt": "󰅐 {:%a %d.%m.%Y %H:%M}"
     },
     "cpu": {
-      "format": "󰘚 {usage}%",
+      "format": "󰍛 {usage}%",
       "tooltip": true
     },
     "memory": {
-      "format": "󰍛 {}%"
+      "format": "󰘚 {}%"
     },
     "temperature": {
       "critical-threshold": 70,

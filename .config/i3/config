@@ -4,6 +4,7 @@ for_window [class="^.*"] border pixel 2
 set $mod Mod4
 font pango:JetBrains Mono Bold 14
 
+exec --no-startup-id xset r rate 200 80
 exec_always --no-startup-id picom --config ~/.config/picom/picom.conf
 exec --no-startup-id dex --autostart --environment i3
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
@@ -14,6 +15,7 @@ exec_always killall polybar
 exec_always --no-startup-id ~/.config/polybar/launch_polybar.sh
 exec --no-startup-id nm-applet
 exec --no-startup-id xinput set-prop 14 'libinput Natural Scrolling Enabled' 1
+exec --no-startup-id xinput set-prop 14 'libinput Accel Speed' 0.4
 exec --no-startup-id ulauncher --hide-window
 
 bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
@@ -207,9 +209,9 @@ gaps outer 0
 
 
 ## Screenshots
-bindsym Print exec --no-startup-id maim "/home/$USER/Pictures/$(date)"
-bindsym $mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) "/home/$USER/Pictures/$(date)"
-bindsym Shift+Print exec --no-startup-id maim --select "/home/$USER/Pictures/$(date)"
+bindsym Print exec --no-startup-id maim "/home/$USER/Pictures/$(date).png"
+bindsym $mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) "/home/$USER/Pictures/$(date).png"
+bindsym Shift+Print exec --no-startup-id maim --select "/home/$USER/Pictures/$(date).png"
 
 ## Clipboard Screenshots
 bindsym Ctrl+Print exec --no-startup-id maim | xclip -selection clipboard -t image/png

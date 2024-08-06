@@ -67,7 +67,7 @@ widget #tray {
 
 #cpu, #power-profiles-daemon, #memory ,#temperature, #tray, #clock, #backlight, #battery, #network, #pulseaudio {
  margin: 5px 5px 0px 5px;
-  background-color: #1e1e2e;
+  /*background-color: #1e1e2e;*/
   border-radius: 5px;
 }
 

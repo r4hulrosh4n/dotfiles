@@ -80,9 +80,7 @@ alias cl='clear'
 alias pfetch='PF_INFO="ascii title os kernel uptime pkgs shell memory editor palette" pfetch'
 alias arch='pfetch'
 alias gpt='tgpt --multiline'
-alias p-high='powerprofilesctl set performance'
-alias p-save='powerprofilesctl set power-saver'
-alias p-base='powerprofilesctl set balanced'
+alias yt='yt-dlp'
 
 #fzf theme
 export FZF_DEFAULT_OPTS=" \
@@ -94,3 +92,6 @@ export FZF_DEFAULT_OPTS=" \
 . "$HOME/.atuin/bin/env"
 eval "$(fzf --zsh)"
 eval "$(atuin init zsh)"
+
+# Created by `pipx` on 2024-08-03 06:14:15
+export PATH="$PATH:/home/rahul/.local/bin"

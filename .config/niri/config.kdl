@@ -21,12 +21,14 @@ input {
   }
 }
 
+
 output "eDP-1" {
   mode "2560x1440@60.012"
   scale 1
   transform "normal"
   position x=0 y=0
 }
+
 
 layout {
   gaps 12
@@ -55,22 +57,25 @@ layout {
   }    
 }
 
+
 cursor {
   xcursor-theme "phinger-cursors-light"
   xcursor-size 24
 }
 
+
 spawn-at-startup "waybar"
 spawn-at-startup "ulauncher" "--hide-window"
 spawn-at-startup "warp-taskbar"
-spawn-at-startup "swaybg" "-i" "/home/rahul/.config/niri/bg/3.png"
+spawn-at-startup "swaybg" "-i" "/home/rahul/.config/niri/bg/4.png"
 spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
 spawn-at-startup "/usr/lib/polkit-kde-authentication-agent-1"
 screenshot-path "~/Pictures/screenshots/%Y-%m-%d %H-%M-%S.png"
 
+
 environment {
   QT_QPA_PLATFORM "wayland"
-  DISPLAY null
+  DISPLAY ":0"
 }
 
 animations {
@@ -87,13 +92,14 @@ window-rule {
   clip-to-geometry true
 }
 
+//Kitty-rules
 window-rule {
   match app-id="kitty"
   draw-border-with-background false
+  //opacity 0.9
 }
 
-
-
+//ulauncher-rules
 window-rule {
   match app-id="ulauncher"
   focus-ring {
@@ -102,52 +108,38 @@ window-rule {
     active-color "#7fc8ff"
     inactive-color "#505050"
   }
-
 }
 
+//Key-bindings//
 binds {
-  Mod+S { show-hotkey-overlay; }
-  Mod+Shift+Q { close-window; }
-  Mod+Q { close-window; }
-  Mod+O { spawn "nautilus"; }
   Mod+Return { spawn "kitty"; }
   Mod+Space { spawn "ulauncher-toggle"; }
   Mod+Shift+Space { spawn "ulauncher" "--hide-window"; }
-
+  Mod+Shift+slash { show-hotkey-overlay; }
+  Mod+Shift+E { quit; }
+  Mod+Shift+P { power-off-monitors; }
+  
+  Alt+L { spawn "swaylock" "--image" ".config/niri/bg/4.png" "--effect-blur" "10x8" "--clock";}
   Alt+P { spawn "wl-color-picker";}
-  Alt+W { spawn "brave" "--ozone-platform=wayland"; }
-  Alt+S { spawn "spotify" "--ozone-platform=wayland";}
-  Alt+V { spawn "cage" "/var/lib/flatpak/exports/bin/org.videolan.VLC";}
-  Alt+E { spawn "cage" "/var/lib/flatpak/exports/bin/com.discordapp.Discord";}
-  Alt+M { spawn "cage" "/var/lib/flatpak/exports/bin/io.github.thaunknown.miru";}
-  Alt+L { spawn "swaylock" "--image" "Pictures/wallpaper/3.png" "--effect-blur" "10x8" "--clock";}
 
   Print { screenshot; }
   Ctrl+Print { screenshot-screen; }
   Alt+Print { screenshot-window; }
 
-  Mod+Shift+E { quit; }
-  Mod+Shift+P { power-off-monitors; }
-
-  XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.05+"; }
-  XF86AudioLowerVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.05-"; }
-  XF86AudioMute allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
-  XF86AudioMicMute allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
-
-  Xf86MonBrightnessUp allow-when-locked=true { spawn "brightnessctl" "set" "+5%"; }
-  Xf86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "set" "5%-"; }
-  Alt+Prior allow-when-locked=true { spawn "light" "-A" "1"; }
-  Alt+Next allow-when-locked=true { spawn "light" "-U" "1"; }
+  Mod+A { close-window; }
+  Mod+O { spawn "nautilus"; }
+  Mod+D { spawn "dev.vencord.Vesktop";}
+  Mod+W { spawn "brave" "--ozone-platform=wayland"; }
+  Mod+S { spawn "spotify" "--ozone-platform=wayland";}
+  Mod+E { spawn "cage" "/var/lib/flatpak/exports/bin/im.riot.Riot"; }
 
   Mod+L { focus-column-right-or-first; }
   Mod+H { focus-column-left-or-last; }
-
   Mod+J { focus-window-or-workspace-down;}
   Mod+K { focus-window-or-workspace-up; }
 
   Mod+Shift+L { move-column-right; }
   Mod+Shift+H { move-column-left; }
-
   Mod+Shift+J { move-window-down-or-to-workspace-down; }
   Mod+Shift+K { move-window-up-or-to-workspace-up; }
 
@@ -188,5 +180,16 @@ binds {
 
   Mod+Shift+Minus { set-window-height "-10%"; }
   Mod+Shift+Equal { set-window-height "+10%"; }
+
+
+  XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.05+"; }
+  XF86AudioLowerVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.05-"; }
+  XF86AudioMute allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
+  XF86AudioMicMute allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
+
+  Xf86MonBrightnessUp allow-when-locked=true { spawn "brightnessctl" "set" "+5%"; }
+  Xf86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "set" "5%-"; }
+  Alt+Prior allow-when-locked=true { spawn "light" "-A" "1"; }
+  Alt+Next allow-when-locked=true { spawn "light" "-U" "1"; }
 
 }
