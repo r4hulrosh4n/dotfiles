@@ -21,7 +21,6 @@ input {
   }
 }
 
-
 output "eDP-1" {
   mode "2560x1440@60.012"
   scale 1
@@ -29,6 +28,12 @@ output "eDP-1" {
   position x=0 y=0
 }
 
+output "DP-1" {
+    mode "2560x1440@143.856"
+    scale 1
+    transform "normal"
+    position x=-2560 y=0
+}
 
 layout {
   gaps 12
@@ -57,25 +62,15 @@ layout {
   }    
 }
 
-
 cursor {
   xcursor-theme "phinger-cursors-light"
   xcursor-size 24
 }
 
 
-spawn-at-startup "waybar"
-spawn-at-startup "ulauncher" "--hide-window"
-spawn-at-startup "warp-taskbar"
-spawn-at-startup "swaybg" "-i" "/home/rahul/.config/niri/bg/4.png"
-spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
-spawn-at-startup "/usr/lib/polkit-kde-authentication-agent-1"
-screenshot-path "~/Pictures/screenshots/%Y-%m-%d %H-%M-%S.png"
-
-
 environment {
   QT_QPA_PLATFORM "wayland"
-  DISPLAY ":0"
+  DISPLAY null
 }
 
 animations {
@@ -92,14 +87,11 @@ window-rule {
   clip-to-geometry true
 }
 
-//Kitty-rules
 window-rule {
   match app-id="kitty"
   draw-border-with-background false
-  //opacity 0.9
 }
 
-//ulauncher-rules
 window-rule {
   match app-id="ulauncher"
   focus-ring {
@@ -110,22 +102,34 @@ window-rule {
   }
 }
 
-//Key-bindings//
+window-rule {
+    match app-id="Nautilus"
+    default-column-width { proportion 0.5; }
+}
+
+spawn-at-startup "waybar"
+spawn-at-startup "ulauncher" "--hide-window"
+spawn-at-startup "warp-taskbar"
+spawn-at-startup "swaybg" "-i" "/home/rahul/.config/niri/bg/4.png"
+spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
+spawn-at-startup "/usr/lib/polkit-kde-authentication-agent-1"
+screenshot-path "~/Pictures/screenshots/%Y-%m-%d %H-%M-%S.png"
+
+workspace "1"
+workspace "2"
+workspace "3"
+workspace "4"
+workspace "5"
+
 binds {
-  Mod+Return { spawn "kitty"; }
-  Mod+Space { spawn "ulauncher-toggle"; }
-  Mod+Shift+Space { spawn "ulauncher" "--hide-window"; }
   Mod+Shift+slash { show-hotkey-overlay; }
   Mod+Shift+E { quit; }
   Mod+Shift+P { power-off-monitors; }
-  
-  Alt+L { spawn "swaylock" "--image" ".config/niri/bg/4.png" "--effect-blur" "10x8" "--clock";}
-  Alt+P { spawn "wl-color-picker";}
-
-  Print { screenshot; }
-  Ctrl+Print { screenshot-screen; }
-  Alt+Print { screenshot-window; }
-
+  Mod+Return { spawn "kitty"; }
+  Mod+Space { spawn "ulauncher-toggle"; }
+  Mod+Shift+Space { spawn "ulauncher" "--hide-window"; }
+  Mod+Semicolon { spawn "swaylock" "--image" ".config/niri/bg/4.png" "--effect-blur" "10x8" "--clock";}
+  Mod+P { spawn "wl-color-picker";}
   Mod+A { close-window; }
   Mod+O { spawn "nautilus"; }
   Mod+D { spawn "dev.vencord.Vesktop";}
@@ -133,20 +137,41 @@ binds {
   Mod+S { spawn "spotify" "--ozone-platform=wayland";}
   Mod+E { spawn "cage" "/var/lib/flatpak/exports/bin/im.riot.Riot"; }
 
+  Mod+1                    { focus-workspace 1; }
+  Mod+2                    { focus-workspace 2; }
+  Mod+3                    { focus-workspace 3; }
+  Mod+4                    { focus-workspace 4; }
+  Mod+5                    { focus-workspace 5; }
+
+  Mod+Shift+1              { move-column-to-workspace 1; }
+  Mod+Shift+2              { move-column-to-workspace 2; }
+  Mod+Shift+3              { move-column-to-workspace 3; }
+  Mod+Shift+4              { move-column-to-workspace 4; }
+  Mod+Shift+5              { move-column-to-workspace 5; }
+
   Mod+L { focus-column-right-or-first; }
   Mod+H { focus-column-left-or-last; }
   Mod+J { focus-window-or-workspace-down;}
   Mod+K { focus-window-or-workspace-up; }
+  Mod+9 { focus-column-first; }
+  Mod+0  { focus-column-last; }
 
   Mod+Shift+L { move-column-right; }
   Mod+Shift+H { move-column-left; }
   Mod+Shift+J { move-window-down-or-to-workspace-down; }
   Mod+Shift+K { move-window-up-or-to-workspace-up; }
-
-  Mod+9 { focus-column-first; }
-  Mod+0  { focus-column-last; }
   Mod+Shift+9 { move-column-to-first; }
   Mod+Shift+0  { move-column-to-last; }
+
+  Mod+Ctrl+H  { focus-monitor-left; }
+  Mod+Ctrl+L { focus-monitor-right; }
+  Mod+Ctrl+J  { focus-monitor-down; }
+  Mod+Ctrl+K    { focus-monitor-up; }
+
+  Mod+Shift+Ctrl+H  { move-column-to-monitor-left; }
+  Mod+Shift+Ctrl+L { move-column-to-monitor-right; }
+  Mod+Shift+Ctrl+J  { move-column-to-monitor-down; }
+  Mod+Shift+Ctrl+K    { move-column-to-monitor-up; }
 
   Mod+WheelScrollDown cooldown-ms=150 { focus-workspace-down; }
   Mod+WheelScrollUp cooldown-ms=150 { focus-workspace-up; }
@@ -166,6 +191,10 @@ binds {
   Mod+TouchpadScrollDown { spawn "light" "-A" "1"; }
   Mod+TouchpadScrollUp   { spawn "light" "-U" "1"; }
 
+  Print { screenshot; }
+  Ctrl+Print { screenshot-screen; }
+  Alt+Print { screenshot-window; }
+
   Mod+Comma  { consume-or-expel-window-left; }
   Mod+Period { consume-or-expel-window-right; }
 
@@ -181,7 +210,6 @@ binds {
   Mod+Shift+Minus { set-window-height "-10%"; }
   Mod+Shift+Equal { set-window-height "+10%"; }
 
-
   XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.05+"; }
   XF86AudioLowerVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.05-"; }
   XF86AudioMute allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
@@ -191,5 +219,4 @@ binds {
   Xf86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "set" "5%-"; }
   Alt+Prior allow-when-locked=true { spawn "light" "-A" "1"; }
   Alt+Next allow-when-locked=true { spawn "light" "-U" "1"; }
-
 }
