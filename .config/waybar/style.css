@@ -30,7 +30,6 @@ button:hover {
 }
 
 #workspaces button label {
-  background: rgba(255, 255, 255, 0.14);
   font-size: 0;
   color: transparent;
   min-width: 10px;
