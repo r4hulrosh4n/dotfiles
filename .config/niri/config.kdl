@@ -108,16 +108,6 @@ window-rule {
 }
 
 window-rule {
-  match app-id="ulauncher"
-  focus-ring {
-    off
-    width 4
-    active-color "#7fc8ff"
-    inactive-color "#505050"
-  }
-}
-
-window-rule {
     match app-id="Nautilus"
     default-column-width { proportion 0.5; }
 }
@@ -130,9 +120,9 @@ binds {
   Mod+Semicolon { spawn "swaylock" "--image" ".config/niri/bg/4.png" "--effect-blur" "10x8" "--clock";}
   Mod+Return { spawn "kitty"; }
   Mod+Space { spawn "~/.config/fuzzel/toggle_fuzzel.sh"; }
-  Mod+B { spawn "~/.config/fuzzel/bluetooth.sh"; }
-  Mod+N { spawn "~/.config/fuzzel/network.sh"; }
-  Mod+M {spawn "bemoji";}
+  Mod+B { spawn "sh" "-c" "pkill fuzzel; ~/.config/fuzzel/bluetooth.sh"; }
+  Mod+N { spawn "sh" "-c" "pkill fuzzel; ~/.config/fuzzel/network.sh"; }
+  Mod+M {spawn "sh" "-c" "pkill fuzzel; bemoji";}
   Mod+P { spawn "wl-color-picker";}
   Mod+A { close-window; }
   Mod+O { spawn "nautilus"; }

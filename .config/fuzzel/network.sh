@@ -59,7 +59,7 @@ def fuzzel_menu():
         state = "Connected" if conn["active"] else "Disconnected"
         options.append(f"{conn['name']} | {state}")
 
-    fuzzel_cmd = subprocess.Popen(['fuzzel', '--dmenu', '--prompt', 'Select Wi-Fi:'], 
+    fuzzel_cmd = subprocess.Popen(['fuzzel', '--dmenu', '--prompt', 'Network:'], 
                                   stdin=subprocess.PIPE, stdout=subprocess.PIPE)
     selection, _ = fuzzel_cmd.communicate(input="\n".join(options).encode())
 

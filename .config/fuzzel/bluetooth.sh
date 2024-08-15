@@ -4,7 +4,7 @@
 devices=$(bluetoothctl devices | cut -d ' ' -f 3-)
 
 # Use fuzzel to select a device
-selected_device=$(echo "$devices" | fuzzel --dmenu)
+selected_device=$(echo "$devices" | fuzzel --dmenu --prompt "Bluetooth:")
 
 # Check if a device was selected (not empty)
 if [ -n "$selected_device" ]; then
