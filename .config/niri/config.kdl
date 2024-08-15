@@ -1,3 +1,19 @@
+spawn-at-startup "waybar"
+spawn-at-startup "ulauncher" "--hide-window"
+spawn-at-startup "warp-taskbar"
+spawn-at-startup "swaybg" "-i" "/home/rahul/.config/niri/bg/4.png"
+spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
+spawn-at-startup "/usr/lib/polkit-kde-authentication-agent-1"
+spawn-at-startup "gsettings" "set" "org.gnome.desktop.interface" "gtk-theme" "Catppuccin-Dark"
+spawn-at-startup "gsettings" "set" "org.gnome.desktop.interface" "icon-theme" "Coloid-dark"
+screenshot-path "~/Pictures/screenshots/%Y-%m-%d %H-%M-%S.png"
+
+workspace "1"
+workspace "2"
+workspace "3"
+workspace "4"
+workspace "5"
+
 input {
 
   keyboard {
@@ -107,28 +123,17 @@ window-rule {
     default-column-width { proportion 0.5; }
 }
 
-spawn-at-startup "waybar"
-spawn-at-startup "ulauncher" "--hide-window"
-spawn-at-startup "warp-taskbar"
-spawn-at-startup "swaybg" "-i" "/home/rahul/.config/niri/bg/4.png"
-spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
-spawn-at-startup "/usr/lib/polkit-kde-authentication-agent-1"
-screenshot-path "~/Pictures/screenshots/%Y-%m-%d %H-%M-%S.png"
-
-workspace "1"
-workspace "2"
-workspace "3"
-workspace "4"
-workspace "5"
 
 binds {
   Mod+Shift+slash { show-hotkey-overlay; }
   Mod+Shift+E { quit; }
   Mod+Shift+P { power-off-monitors; }
-  Mod+Return { spawn "kitty"; }
-  Mod+Space { spawn "ulauncher-toggle"; }
-  Mod+Shift+Space { spawn "ulauncher" "--hide-window"; }
   Mod+Semicolon { spawn "swaylock" "--image" ".config/niri/bg/4.png" "--effect-blur" "10x8" "--clock";}
+  Mod+Return { spawn "kitty"; }
+  Mod+Space { spawn "~/.config/fuzzel/toggle_fuzzel.sh"; }
+  Mod+B { spawn "~/.config/fuzzel/bluetooth.sh"; }
+  Mod+N { spawn "~/.config/fuzzel/network.sh"; }
+  Mod+M {spawn "bemoji";}
   Mod+P { spawn "wl-color-picker";}
   Mod+A { close-window; }
   Mod+O { spawn "nautilus"; }
