@@ -61,6 +61,9 @@ zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':completion:*' menu yes
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 
+export EDITOR="nvim"
+export MANPAGER="nvim +Man!"
+
 # Aliases
 alias vim='nvim'
 alias c='clear'
@@ -88,11 +91,9 @@ export FZF_DEFAULT_OPTS=" \
   --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
   --color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8"
 
-
 . "$HOME/.atuin/bin/env"
 eval "$(fzf --zsh)"
 eval "$(atuin init zsh)"
-
 
 # Created by `pipx` on 2024-08-03 06:14:15
 export PATH="$PATH:/home/rahul/.local/bin"

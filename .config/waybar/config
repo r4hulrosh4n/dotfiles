@@ -16,10 +16,10 @@
       "spacing": 0
     },
     "clock": {
-      "timezone": "Asia/Kolkata",
-      "format": "󰅐 {:%a %H:%M}",
-      "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-      "format-alt": "󰅐 {:%a %d.%m.%Y %H:%M}"
+    "timezone": "Asia/Kolkata",
+    "format": "󰅐 {:%a %I:%M %p}",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    "format-alt": "󰅐 {:%a %d.%m.%Y %I:%M %p}"
     },
     "cpu": {
       "format": "󰍛 {usage}%",
