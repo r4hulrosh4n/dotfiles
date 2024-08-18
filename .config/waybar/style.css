@@ -6,6 +6,7 @@
   font-weight: 500;
 }
 
+
 window#waybar {
   border: 3px;
   background-color: transparent;
@@ -28,6 +29,7 @@ button:hover {
 #workspaces button {
   padding: 0;
 }
+
 
 #workspaces button label {
   font-size: 0;
@@ -60,11 +62,11 @@ button:hover {
 
 widget #tray {
   font-size: 1; 
-  margin-right: 12px;
+  /*margin-right: 12px;*/
   padding: 0;
 }
 
-#cpu, #power-profiles-daemon, #memory ,#temperature, #tray, #clock, #backlight, #battery, #network, #pulseaudio {
+#cpu, #power-profiles-daemon, #custom-recording, #memory ,#temperature, #tray, #clock, #backlight, #battery, #network, #pulseaudio {
  margin: 5px 5px 0px 5px;
   /*background-color: #1e1e2e;*/
   border-radius: 5px;

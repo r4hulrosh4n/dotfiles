@@ -6,7 +6,7 @@
     "fixed-center": true,
     "modules-left": [],
     "modules-center": [],
-    "modules-right": ["network", "pulseaudio", "battery", "backlight", "cpu", "memory", "temperature", "clock", "tray"],
+    "modules-right": ["custom/recording", "network", "pulseaudio", "battery", "backlight", "cpu", "memory", "temperature", "clock", "tray"],
     "sway/window": {
       "max-length": 50,
       "max-length-mode": "middle",
@@ -80,16 +80,20 @@
       "on-click-right": "pactl set-source-mute 0 toggle"
     },
     "power-profiles-daemon": {
-  "format": "{icon}",
-  "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
-  "tooltip": true,
-  "format-icons": {
-    "default": "󱐋",
-    "performance": "󱐋 High",
-    "balanced": "󱓝 Base",
-    "power-saver": "󰌪 Save"
-  }  
-}
+      "format": "{icon}",
+      "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+      "tooltip": true,
+      "format-icons": {
+      "default": "󱐋",
+      "performance": "󱐋 High",
+      "balanced": "󱓝 Base",
+      "power-saver": "󰌪 Save"
+      }  
+    },
+    "custom/recording": {
+      "exec": "pgrep wl-screenrec > /dev/null && echo '󰻃 REC' || echo ''",
+      "interval": 2
+    }
 }
 
 

@@ -14,7 +14,6 @@ workspace "4"
 workspace "5"
 
 input {
-
   keyboard {
     xkb {
       layout "us"
@@ -82,7 +81,6 @@ cursor {
   xcursor-size 24
 }
 
-
 environment {
   QT_QPA_PLATFORM "wayland"
   DISPLAY null
@@ -112,7 +110,6 @@ window-rule {
     default-column-width { proportion 0.5; }
 }
 
-
 binds {
   Mod+Shift+slash { show-hotkey-overlay; }
   Mod+Shift+E { quit; }
@@ -123,13 +120,14 @@ binds {
   Mod+B { spawn "sh" "-c" "pkill fuzzel; ~/.config/fuzzel/bluetooth.sh"; }
   Mod+N { spawn "sh" "-c" "pkill fuzzel; ~/.config/fuzzel/network.sh"; }
   Mod+M {spawn "sh" "-c" "pkill fuzzel; bemoji";}
+  Mod+Q { spawn "sh" "-c" "~/.config/niri/screenrec.sh"; }
   Mod+P { spawn "wl-color-picker";}
   Mod+A { close-window; }
   Mod+O { spawn "nautilus"; }
   Mod+D { spawn "dev.vencord.Vesktop";}
   Mod+W { spawn "brave" "--ozone-platform=wayland"; }
   Mod+S { spawn "spotify" "--ozone-platform=wayland";}
-  Mod+E { spawn "cage" "/var/lib/flatpak/exports/bin/im.riot.Riot"; }
+  Mod+E { spawn "im.riot.Riot" "--enable-features=UseOzonePlatform" "--ozone-platform=wayland"; }
 
   Mod+1                    { focus-workspace 1; }
   Mod+2                    { focus-workspace 2; }
