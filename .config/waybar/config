@@ -13,7 +13,7 @@
       "tooltip": true
     },
     "tray": {
-      "spacing": 0
+      "spacing": 0,
     },
     "clock": {
     "timezone": "Asia/Kolkata",
