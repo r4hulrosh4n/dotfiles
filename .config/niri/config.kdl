@@ -102,6 +102,7 @@ window-rule {
 
 window-rule {
   match app-id="kitty"
+  default-column-width { proportion 0.75; }
   draw-border-with-background false
 }
 
@@ -120,13 +121,13 @@ binds {
   Mod+B { spawn "sh" "-c" "pkill fuzzel; ~/.config/fuzzel/bluetooth.sh"; }
   Mod+N { spawn "sh" "-c" "pkill fuzzel; ~/.config/fuzzel/network.sh"; }
   Mod+M {spawn "sh" "-c" "pkill fuzzel; bemoji";}
+  Mod+S { spawn "sh" "-c" "~/.config/fuzzel/spotify_fuzzel.sh";}
   Mod+Q { spawn "sh" "-c" "~/.config/niri/screenrec.sh"; }
   Mod+P { spawn "wl-color-picker";}
   Mod+A { close-window; }
   Mod+O { spawn "nautilus"; }
   Mod+D { spawn "dev.vencord.Vesktop";}
   Mod+W { spawn "brave" "--ozone-platform=wayland"; }
-  Mod+S { spawn "spotify" "--ozone-platform=wayland";}
   Mod+E { spawn "im.riot.Riot" "--enable-features=UseOzonePlatform" "--ozone-platform=wayland"; }
 
   Mod+1                    { focus-workspace 1; }

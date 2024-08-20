@@ -4,7 +4,7 @@
     "spacing": 0,
     "layer": "bottom",
     "fixed-center": true,
-    "modules-left": [],
+    "modules-left": ["custom/spotify"],
     "modules-center": [],
     "modules-right": ["custom/recording", "network", "pulseaudio", "battery", "backlight", "cpu", "memory", "temperature", "clock", "tray"],
     "sway/window": {
@@ -93,8 +93,17 @@
     "custom/recording": {
       "exec": "pgrep wl-screenrec > /dev/null && echo '󰻃 REC' || echo ''",
       "interval": 2
+    },
+    "custom/spotify": {
+        "exec": "~/.config/niri/spotify_waybar.sh",
+        "interval": 1,
+        "on-click-left": "playerctl -p spotify play-pause",
+        "on-click-right": "playerctl -p spotify next",
+        "on-click-middle": "playerctl -p spotify previous",
+        "on-click": "playerctl -p spotify play-pause",
+        "on-scroll-up": "playerctl -p spotify volume 0.05+",
+        "on-scroll-down": "playerctl -p spotify volume 0.05-",
+        "tooltip": false
     }
 }
-
-
 
