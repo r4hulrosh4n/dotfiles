@@ -118,10 +118,10 @@ binds {
   Mod+Semicolon { spawn "swaylock" "--image" ".config/niri/bg/4.png" "--effect-blur" "10x8" "--clock";}
   Mod+Return { spawn "kitty"; }
   Mod+Space { spawn "~/.config/fuzzel/toggle_fuzzel.sh"; }
+  Mod+M {spawn "sh" "-c" "pkill fuzzel; bemoji";}
   Mod+B { spawn "sh" "-c" "pkill fuzzel; ~/.config/fuzzel/bluetooth.sh"; }
   Mod+N { spawn "sh" "-c" "pkill fuzzel; ~/.config/fuzzel/network.sh"; }
-  Mod+M {spawn "sh" "-c" "pkill fuzzel; bemoji";}
-  Mod+S { spawn "sh" "-c" "~/.config/fuzzel/spotify_fuzzel.sh";}
+  Mod+S { spawn "sh" "-c" "pkill fuzzel; ~/.config/fuzzel/spotify_fuzzel.sh";}
   Mod+Q { spawn "sh" "-c" "~/.config/niri/screenrec.sh"; }
   Mod+P { spawn "wl-color-picker";}
   Mod+A { close-window; }
