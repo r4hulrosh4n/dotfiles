@@ -64,7 +64,7 @@ widget #tray {
   padding: 0;
 }
 #custom-spotify {
- margin: 5px 0px 5px 5px;
+ margin: 5px 5px 0px 5px;
   /*background-color: #1e1e2e;*/
   border-radius: 5px;
 }

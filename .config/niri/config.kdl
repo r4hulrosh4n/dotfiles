@@ -1,7 +1,7 @@
 spawn-at-startup "waybar"
 spawn-at-startup "ulauncher" "--hide-window"
 spawn-at-startup "warp-taskbar"
-spawn-at-startup "swaybg" "-i" "/home/rahul/.config/niri/bg/4.png"
+spawn-at-startup "swaybg" "-i" "/home/rahul/.config/niri/bg/background.png"
 spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
 spawn-at-startup "/usr/lib/polkit-kde-authentication-agent-1"
 spawn-at-startup "~/.config/niri/startup.sh"
@@ -12,6 +12,8 @@ workspace "2"
 workspace "3"
 workspace "4"
 workspace "5"
+workspace "6"
+workspace "7"
 
 input {
   keyboard {
@@ -42,12 +44,12 @@ output "eDP-1" {
   position x=0 y=0
 }
 
-output "DP-1" {
-    mode "2560x1440@143.856"
-    scale 1
-    transform "normal"
-    position x=-2560 y=0
-}
+// output "DP-1" {
+//     mode "2560x1440@143.856"
+//     scale 1
+//     transform "normal"
+//     position x=-2560 y=0
+// }
 
 layout {
   gaps 12
@@ -87,6 +89,7 @@ environment {
 }
 
 animations {
+  slowdown 1.0
 }
 
 prefer-no-csd
@@ -115,7 +118,7 @@ binds {
   Mod+Shift+slash { show-hotkey-overlay; }
   Mod+Shift+E { quit; }
   Mod+Shift+P { power-off-monitors; }
-  Mod+Semicolon { spawn "swaylock" "--image" ".config/niri/bg/4.png" "--effect-blur" "10x8" "--clock";}
+  Mod+Semicolon { spawn "swaylock" "--image" ".config/niri/bg/background.png" "--effect-blur" "10x8" "--clock";}
   Mod+Return { spawn "kitty"; }
   Mod+Space { spawn "~/.config/fuzzel/toggle_fuzzel.sh"; }
   Mod+M {spawn "sh" "-c" "pkill fuzzel; bemoji";}
@@ -135,12 +138,16 @@ binds {
   Mod+3                    { focus-workspace 3; }
   Mod+4                    { focus-workspace 4; }
   Mod+5                    { focus-workspace 5; }
+  Mod+6                    { focus-workspace 6; }
+  Mod+7                    { focus-workspace 7; }
 
   Mod+Shift+1              { move-column-to-workspace 1; }
   Mod+Shift+2              { move-column-to-workspace 2; }
   Mod+Shift+3              { move-column-to-workspace 3; }
   Mod+Shift+4              { move-column-to-workspace 4; }
   Mod+Shift+5              { move-column-to-workspace 5; }
+  Mod+Shift+6              { move-column-to-workspace 6; }
+  Mod+Shift+7              { move-column-to-workspace 7; }
 
   Mod+L { focus-column-right-or-first; }
   Mod+H { focus-column-left-or-last; }
@@ -156,11 +163,11 @@ binds {
   Mod+Shift+9 { move-column-to-first; }
   Mod+Shift+0  { move-column-to-last; }
 
-  Mod+Ctrl+H  { focus-monitor-left; }
-  Mod+Ctrl+L { focus-monitor-right; }
-  Mod+Ctrl+J  { focus-monitor-down; }
-  Mod+Ctrl+K    { focus-monitor-up; }
-
+  mod+ctrl+h  { focus-monitor-left; }
+  mod+ctrl+l { focus-monitor-right; }
+  mod+ctrl+j  { focus-monitor-down; }
+  mod+ctrl+k    { focus-monitor-up; }
+  
   Mod+Shift+Ctrl+H  { move-column-to-monitor-left; }
   Mod+Shift+Ctrl+L { move-column-to-monitor-right; }
   Mod+Shift+Ctrl+J  { move-column-to-monitor-down; }

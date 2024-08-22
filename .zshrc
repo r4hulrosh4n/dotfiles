@@ -84,6 +84,7 @@ alias pfetch='PF_INFO="ascii title os kernel uptime pkgs shell memory editor pal
 alias arch='pfetch'
 alias gpt='tgpt --multiline'
 alias yt='yt-dlp'
+alias sys='~/.config/niri/sys.sh'
 
 #fzf theme
 export FZF_DEFAULT_OPTS=" \

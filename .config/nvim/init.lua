@@ -11,7 +11,6 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-vim.env.PATH = '/home/linuxbrew/.linuxbrew/bin:' .. vim.env.PATH
 vim.opt.wildignorecase = true
 
 

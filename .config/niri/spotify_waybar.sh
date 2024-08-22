@@ -26,7 +26,8 @@ restore_volume() {
 }
 
 # Detect if the title is "Advertisement"
-if [ "$song" == "Advertisement" ]; then
+# if [ "$song" == "Advertisement" ]; then
+if [ "$song" == "Advertisement" ] || [ "$song" == "Universal Music Group" ]; then
     # Save the current volume and mute it
     if [ ! -f "$ad_file" ]; then
         current_volume=$(playerctl -p spotify volume)
@@ -36,7 +37,7 @@ if [ "$song" == "Advertisement" ]; then
     fi
     
     # Show Advertisement text
-    echo "  Advertisement"
+    echo " 󱡔 Advertisement"
 else
     # Restore volume if an ad has ended
     if [ -f "$ad_file" ]; then
@@ -45,9 +46,9 @@ else
     
     # Show the song title with the appropriate icon
     if [ "$status" == "Playing" ]; then
-        echo "  $song" # Playing icon with song name
+        echo " 󰌳 $song" # Playing icon with song name
     elif [ "$status" == "Paused" ]; then
-        echo "  $song" # Paused icon with song name
+        echo " 󰼄 $song" # Paused icon with song name
     else
         exit 0
     fi
