@@ -20,6 +20,8 @@ return {
                 "tsserver", -- TypeScript/JavaScript language server
                 "ast_grep", -- Add ast_grep to ensure installed
                 "pyright", -- Python language server
+                "tailwindcss", -- Tailwind CSS language server
+
             },
             auto_install = true,
         },
@@ -59,6 +61,9 @@ return {
                 capabilities = capabilities,
             })
             lspconfig.pyright.setup({
+                capabilities = capabilities,
+            })
+            lspconfig.tailwindcss.setup({
                 capabilities = capabilities,
             })
 

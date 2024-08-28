@@ -1,4 +1,4 @@
-spawn-at-startup "waybar"
+// spawn-at-startup "waybar"
 spawn-at-startup "ulauncher" "--hide-window"
 spawn-at-startup "warp-taskbar"
 spawn-at-startup "swaybg" "-i" "/home/rahul/.config/niri/bg/background.png"
@@ -35,7 +35,9 @@ input {
   trackpoint {
     accel-speed 0.0
   }
+focus-follows-mouse 
 }
+
 
 output "eDP-1" {
   mode "2560x1440@60.012"
@@ -50,6 +52,7 @@ output "eDP-1" {
 //     transform "normal"
 //     position x=-2560 y=0
 // }
+
 
 layout {
   gaps 12
@@ -89,7 +92,7 @@ environment {
 }
 
 animations {
-  slowdown 1.0
+   slowdown 0.7
 }
 
 prefer-no-csd
@@ -111,14 +114,13 @@ window-rule {
 
 window-rule {
     match app-id="Nautilus"
-    default-column-width { proportion 0.5; }
+   default-column-width { proportion 0.5; }
 }
 
 binds {
   Mod+Shift+slash { show-hotkey-overlay; }
   Mod+Shift+E { quit; }
   Mod+Shift+P { power-off-monitors; }
-  Mod+Semicolon { spawn "swaylock" "--image" ".config/niri/bg/background.png" "--effect-blur" "10x8" "--clock";}
   Mod+Return { spawn "kitty"; }
   Mod+Space { spawn "~/.config/fuzzel/toggle_fuzzel.sh"; }
   Mod+M {spawn "sh" "-c" "pkill fuzzel; bemoji";}
@@ -132,6 +134,11 @@ binds {
   Mod+D { spawn "dev.vencord.Vesktop";}
   Mod+W { spawn "brave" "--ozone-platform=wayland"; }
   Mod+E { spawn "im.riot.Riot" "--enable-features=UseOzonePlatform" "--ozone-platform=wayland"; }
+  Alt+L { spawn "swaylock" "--image" ".config/niri/bg/background.png" "--effect-blur" "10x8" "--clock";}
+  
+  // xwayland-saetllite 
+  // Mod+V { spawn "bash" "-c" "env DISPLAY=:0 $(tofi-drun --fuzzy-match=true --prompt-text=\"> \" --font=\"Fira Code Regular\" --width=2560 --height=1440 --font-size=14 --drun-launch=False 2>/dev/null)"; }
+
 
   Mod+1                    { focus-workspace 1; }
   Mod+2                    { focus-workspace 2; }
@@ -151,10 +158,12 @@ binds {
 
   Mod+L { focus-column-right-or-first; }
   Mod+H { focus-column-left-or-last; }
-  Mod+J { focus-window-or-workspace-down;}
   Mod+K { focus-window-or-workspace-up; }
-  Mod+9 { focus-column-first; }
-  Mod+0  { focus-column-last; }
+  Mod+J { focus-window-or-workspace-down;}
+  Mod+G { focus-column-first; }
+  Mod+Semicolon  { focus-column-last; }
+  
+
 
   Mod+Shift+L { move-column-right; }
   Mod+Shift+H { move-column-left; }
@@ -167,7 +176,7 @@ binds {
   mod+ctrl+l { focus-monitor-right; }
   mod+ctrl+j  { focus-monitor-down; }
   mod+ctrl+k    { focus-monitor-up; }
-  
+
   Mod+Shift+Ctrl+H  { move-column-to-monitor-left; }
   Mod+Shift+Ctrl+L { move-column-to-monitor-right; }
   Mod+Shift+Ctrl+J  { move-column-to-monitor-down; }
@@ -207,8 +216,14 @@ binds {
   Mod+Minus { set-column-width "-10%"; }
   Mod+Equal { set-column-width "+10%"; }
 
-  Mod+Shift+Minus { set-window-height "-10%"; }
   Mod+Shift+Equal { set-window-height "+10%"; }
+  Mod+Shift+Minus { set-window-height "-10%"; }
+
+  Alt+Shift+Equal { spawn "brightnessctl" "set" "+5%"; }
+  Alt+Shift+Minus { spawn "brightnessctl" "set" "5%-"; }
+
+  Alt+Equal { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.05+"; }
+  Alt+Minus { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.05-"; }
 
   XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.05+"; }
   XF86AudioLowerVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.05-"; }
