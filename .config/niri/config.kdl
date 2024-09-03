@@ -92,7 +92,7 @@ environment {
 }
 
 animations {
-   slowdown 0.7
+   slowdown 0.5
 }
 
 prefer-no-csd
@@ -110,6 +110,7 @@ window-rule {
   match app-id="kitty"
   default-column-width { proportion 0.75; }
   draw-border-with-background false
+  // opacity 0.9
 }
 
 window-rule {
@@ -121,6 +122,7 @@ binds {
   Mod+Shift+slash { show-hotkey-overlay; }
   Mod+Shift+E { quit; }
   Mod+Shift+P { power-off-monitors; }
+  Mod+Shift+W { spawn "sh" "-c" "~/.config/niri/waybar.sh"; }
   Mod+Return { spawn "kitty"; }
   Mod+Space { spawn "~/.config/fuzzel/toggle_fuzzel.sh"; }
   Mod+M {spawn "sh" "-c" "pkill fuzzel; bemoji";}
@@ -128,18 +130,15 @@ binds {
   Mod+N { spawn "sh" "-c" "pkill fuzzel; ~/.config/fuzzel/network.sh"; }
   Mod+S { spawn "sh" "-c" "pkill fuzzel; ~/.config/fuzzel/spotify_fuzzel.sh";}
   Mod+Q { spawn "sh" "-c" "~/.config/niri/screenrec.sh"; }
+  Mod+I { spawn "sh" "-c" "~/invert_color.sh"; }
   Mod+P { spawn "wl-color-picker";}
   Mod+A { close-window; }
   Mod+O { spawn "nautilus"; }
   Mod+D { spawn "dev.vencord.Vesktop";}
   Mod+W { spawn "brave" "--ozone-platform=wayland"; }
   Mod+E { spawn "im.riot.Riot" "--enable-features=UseOzonePlatform" "--ozone-platform=wayland"; }
-  Alt+L { spawn "swaylock" "--image" ".config/niri/bg/background.png" "--effect-blur" "10x8" "--clock";}
+  Mod+Semicolon { spawn "swaylock" "--image" ".config/niri/bg/background.png" "--effect-blur" "10x8" "--clock";}
   
-  // xwayland-saetllite 
-  // Mod+V { spawn "bash" "-c" "env DISPLAY=:0 $(tofi-drun --fuzzy-match=true --prompt-text=\"> \" --font=\"Fira Code Regular\" --width=2560 --height=1440 --font-size=14 --drun-launch=False 2>/dev/null)"; }
-
-
   Mod+1                    { focus-workspace 1; }
   Mod+2                    { focus-workspace 2; }
   Mod+3                    { focus-workspace 3; }
@@ -160,8 +159,6 @@ binds {
   Mod+H { focus-column-left-or-last; }
   Mod+K { focus-window-or-workspace-up; }
   Mod+J { focus-window-or-workspace-down;}
-  Mod+G { focus-column-first; }
-  Mod+Semicolon  { focus-column-last; }
   
 
 

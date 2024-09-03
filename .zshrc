@@ -96,5 +96,4 @@ export FZF_DEFAULT_OPTS=" \
 eval "$(fzf --zsh)"
 eval "$(atuin init zsh)"
 
-# Created by `pipx` on 2024-08-03 06:14:15
 export PATH="$PATH:/home/rahul/.local/bin"
