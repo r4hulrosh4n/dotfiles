@@ -12,6 +12,6 @@ if pgrep -x "wl-screenrec" > /dev/null; then
     pkill wl-screenrec
 else
     # Start recording with wl-screenrec
-    wl-screenrec --audio --audio-device bluez_output.98_47_44_15_6B_4F.1.monitor -f "$FILENAME" &
+    wl-screenrec --output=eDP-1 --audio --audio-device bluez_output.98_47_44_15_6B_4F.1.monitor -f "$FILENAME" &
 fi
 

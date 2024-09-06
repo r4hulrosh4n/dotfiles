@@ -1,7 +1,7 @@
-// spawn-at-startup "waybar"
+spawn-at-startup "waybar"
 spawn-at-startup "ulauncher" "--hide-window"
 spawn-at-startup "warp-taskbar"
-spawn-at-startup "swaybg" "-i" "/home/rahul/.config/niri/bg/background.png"
+spawn-at-startup "swaybg" "-i" "/home/rahul/.config/niri/bg/bg.png"
 spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
 spawn-at-startup "/usr/lib/polkit-kde-authentication-agent-1"
 spawn-at-startup "~/.config/niri/startup.sh"
@@ -129,14 +129,13 @@ binds {
   Mod+N { spawn "sh" "-c" "pkill fuzzel; ~/.config/fuzzel/network.sh"; }
   Mod+S { spawn "sh" "-c" "pkill fuzzel; ~/.config/fuzzel/spotify_fuzzel.sh";}
   Mod+Q { spawn "sh" "-c" "~/.config/niri/screenrec.sh"; }
-  Mod+I { spawn "sh" "-c" "~/invert_color.sh"; }
-  Mod+P { spawn "wl-color-picker";}
+  Mod+Shift+C { spawn "wl-color-picker";}
   Mod+A { close-window; }
   Mod+O { spawn "nautilus"; }
-  Mod+D { spawn "dev.vencord.Vesktop";}
+  // Mod+D { spawn "dev.vencord.Vesktop";}
   Mod+W { spawn "brave" "--ozone-platform=wayland"; }
-  Mod+E { spawn "im.riot.Riot" "--enable-features=UseOzonePlatform" "--ozone-platform=wayland"; }
-  Mod+Semicolon { spawn "swaylock" "--image" ".config/niri/bg/background.png" "--effect-blur" "10x8" "--clock";}
+  // Mod+E { spawn "im.riot.Riot" "--enable-features=UseOzonePlatform" "--ozone-platform=wayland"; }
+  Mod+Semicolon { spawn "swaylock" "--image" ".config/niri/bg/bg.png" "--effect-blur" "10x8" "--clock";}
   
   Mod+1                    { focus-workspace 1; }
   Mod+2                    { focus-workspace 2; }
@@ -197,6 +196,7 @@ binds {
 
   Print { screenshot; }
   Ctrl+Print { screenshot-screen; }
+  Mod+P { screenshot-screen; }
   Alt+Print { screenshot-window; }
 
   Mod+Comma  { consume-or-expel-window-left; }
