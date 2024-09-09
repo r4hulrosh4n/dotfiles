@@ -1,7 +1,7 @@
 spawn-at-startup "waybar"
 spawn-at-startup "ulauncher" "--hide-window"
 spawn-at-startup "warp-taskbar"
-spawn-at-startup "swaybg" "-i" "/home/rahul/.config/niri/bg/bg.png"
+spawn-at-startup "swaybg" "-i" "/home/rahul/.config/niri/bg/cat.png"
 spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
 spawn-at-startup "/usr/lib/polkit-kde-authentication-agent-1"
 spawn-at-startup "~/.config/niri/startup.sh"
@@ -18,6 +18,7 @@ input {
   keyboard {
     xkb {
       layout "us"
+      options "ctrl:ralt_rctrl"
     }
     repeat-delay 300
     repeat-rate 80
@@ -39,18 +40,18 @@ focus-follows-mouse
 
 
 output "eDP-1" {
-  mode "2560x1440@60.012"
+  mode "1920x1080@59.999"
   scale 1
   transform "normal"
   position x=0 y=0
 }
 
-// output "DP-1" {
-//     mode "2560x1440@143.856"
-//     scale 1
-//     transform "normal"
-//     position x=-2560 y=0
-// }
+output "HDMI-A-1" {
+    mode "1360x768@60"
+    scale 0.7
+    transform "normal"
+    position x=1920 y=0
+}
 
 
 layout {
@@ -132,10 +133,9 @@ binds {
   Mod+Shift+C { spawn "wl-color-picker";}
   Mod+A { close-window; }
   Mod+O { spawn "nautilus"; }
-  // Mod+D { spawn "dev.vencord.Vesktop";}
   Mod+W { spawn "brave" "--ozone-platform=wayland"; }
+  Mod+Semicolon { spawn "swaylock" "--image" ".config/niri/bg/cat.png" "--effect-blur" "10x8" "--clock";}
   // Mod+E { spawn "im.riot.Riot" "--enable-features=UseOzonePlatform" "--ozone-platform=wayland"; }
-  Mod+Semicolon { spawn "swaylock" "--image" ".config/niri/bg/bg.png" "--effect-blur" "10x8" "--clock";}
   
   Mod+1                    { focus-workspace 1; }
   Mod+2                    { focus-workspace 2; }
