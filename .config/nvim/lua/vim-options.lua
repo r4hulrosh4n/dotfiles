@@ -15,8 +15,14 @@ vim.keymap.set('n', '<c-l>', ':wincmd l<CR>')
 
 
 vim.keymap.set('n', '<leader>h', ':nohlsearch<CR>')
-vim.wo.number = true
+-- vim.wo.number = true
 vim.wo.relativenumber = true
 
-vim.api.nvim_set_keymap('n', '<A-9>', ':bprevious<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<A-7>', ':bprevious<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<A-0>', ':bnext<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<A-n>', ':set relativenumber!<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "tk", ":blast<enter>", {noremap=false})
+vim.api.nvim_set_keymap("n", "tj", ":bfirst<enter>", {noremap=false})
+vim.api.nvim_set_keymap("n", "th", ":bprev<enter>", {noremap=false})
+vim.api.nvim_set_keymap("n", "tl", ":bnext<enter>", {noremap=false})
+vim.api.nvim_set_keymap("n", "td", ":bdelete<enter>", {noremap=false})
