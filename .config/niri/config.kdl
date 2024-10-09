@@ -1,7 +1,6 @@
 spawn-at-startup "waybar"
-spawn-at-startup "ulauncher" "--hide-window"
 spawn-at-startup "warp-taskbar"
-spawn-at-startup "swaybg" "-i" "/home/rahul/.config/niri/bg/cat.png"
+spawn-at-startup "swaybg" "-i" "/home/rahul/.config/niri/bg/wallpaper.png"
 spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
 spawn-at-startup "/usr/lib/polkit-kde-authentication-agent-1"
 spawn-at-startup "~/.config/niri/startup.sh"
@@ -28,7 +27,7 @@ input {
     dwt
     dwtp
     natural-scroll
-    accel-speed 0.5
+    accel-speed 0.4
     tap
   }
   mouse {
@@ -38,7 +37,7 @@ input {
   trackpoint {
     accel-speed 0.0
   }
-focus-follows-mouse 
+focus-follows-mouse
 }
 
 output "eDP-1" {
@@ -70,7 +69,7 @@ layout {
 
   focus-ring {
     width 2
-    active-color "hsla(251, 86%, 64%, 0.80)"
+    active-color "hsla(251, 86%, 64%, 0.90)"
     inactive-color "hsla(251, 86%, 64%, 0.10)"
   }
 
@@ -79,7 +78,7 @@ layout {
     width 4
     active-color "#ffc87f"
     inactive-color "#505050"
-  }    
+  }
 }
 
 cursor {
@@ -108,10 +107,12 @@ window-rule {
 }
 
 window-rule {
+  match app-id="spotify"
+  match app-id="brave"
   match app-id="kitty"
   default-column-width { proportion 0.75; }
   draw-border-with-background false
-  // opacity 0.96
+  //opacity 0.8
 }
 
 window-rule {
@@ -133,11 +134,13 @@ binds {
   Mod+Q { spawn "sh" "-c" "~/.config/niri/screenrec.sh"; }
   Mod+Shift+C { spawn "wl-color-picker";}
   Mod+A { close-window; }
+  Mod+U { spawn "cage" "/usr/bin/mongodb-compass";}
   Mod+O { spawn "nautilus"; }
   Mod+W { spawn "brave" "--ozone-platform=wayland"; }
-  Mod+Semicolon { spawn "swaylock" "--image" ".config/niri/bg/cat.png" "--effect-blur" "10x8" "--clock";}
-  Mod+E { spawn "im.riot.Riot" "--enable-features=UseOzonePlatform" "--ozone-platform=wayland"; }
-  
+  Mod+Shift+G { spawn "google-chrome-stable" "--ozone-platform=wayland"; }
+  Mod+Semicolon { spawn "swaylock" "--image" ".config/niri/bg/lock.png" "--clock";}
+  Mod+Shift+M { spawn "im.riot.Riot" "--enable-features=UseOzonePlatform" "--ozone-platform=wayland"; }
+
   Mod+1                    { focus-workspace 1; }
   Mod+2                    { focus-workspace 2; }
   Mod+3                    { focus-workspace 3; }
@@ -145,6 +148,7 @@ binds {
   Mod+5                    { focus-workspace 5; }
   Mod+6                    { focus-workspace 6; }
   Mod+7                    { focus-workspace 7; }
+  Mod+8                    { focus-workspace 8; }
 
   Mod+Shift+1              { move-column-to-workspace 1; }
   Mod+Shift+2              { move-column-to-workspace 2; }
@@ -152,6 +156,8 @@ binds {
   Mod+Shift+4              { move-column-to-workspace 4; }
   Mod+Shift+5              { move-column-to-workspace 5; }
   Mod+Shift+6              { move-column-to-workspace 6; }
+  Mod+Shift+7              { move-column-to-workspace 7; }
+  Mod+Shift+8              { move-column-to-workspace 8; }
 
   Mod+L { focus-column-right-or-first; }
   Mod+H { focus-column-left-or-last; }
@@ -196,6 +202,7 @@ binds {
   Print { screenshot; }
   Ctrl+Print { screenshot-screen; }
   Mod+P { screenshot-screen; }
+  Mod+Alt+P { screenshot; }
   Alt+Print { screenshot-window; }
 
   Mod+Comma  { consume-or-expel-window-left; }
