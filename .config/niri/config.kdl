@@ -92,8 +92,9 @@ environment {
 }
 
 animations {
-   slowdown 0.5
+    slowdown 0.4
 }
+
 
 prefer-no-csd
 
@@ -112,7 +113,7 @@ window-rule {
   match app-id="kitty"
   default-column-width { proportion 0.75; }
   draw-border-with-background false
-  //opacity 0.8
+  //opacity 0.9
 }
 
 window-rule {
@@ -134,7 +135,6 @@ binds {
   Mod+Q { spawn "sh" "-c" "~/.config/niri/screenrec.sh"; }
   Mod+Shift+C { spawn "wl-color-picker";}
   Mod+A { close-window; }
-  Mod+U { spawn "cage" "/usr/bin/mongodb-compass";}
   Mod+O { spawn "nautilus"; }
   Mod+W { spawn "brave" "--ozone-platform=wayland"; }
   Mod+Shift+G { spawn "google-chrome-stable" "--ozone-platform=wayland"; }
