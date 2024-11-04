@@ -16,7 +16,6 @@ return {
                 "eslint", -- ESLint LSP
                 "html", -- HTML LSP
                 "lua_ls", -- Lua language server
-                "solargraph", -- Ruby language server
                 "tsserver", -- TypeScript/JavaScript language server
                 "ast_grep", -- Add ast_grep to ensure installed
                 "pyright", -- Python language server
@@ -50,9 +49,6 @@ return {
                 capabilities = capabilities,
             })
             lspconfig.lua_ls.setup({
-                capabilities = capabilities,
-            })
-            lspconfig.solargraph.setup({
                 capabilities = capabilities,
             })
             lspconfig.tsserver.setup({

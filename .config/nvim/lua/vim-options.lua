@@ -26,3 +26,4 @@ vim.api.nvim_set_keymap("n", "vs", ":vsplit<enter>", { noremap = false })
 vim.api.nvim_set_keymap("n", "<A-n>", ":set relativenumber! number!<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("v", "<C-y>", '"+y', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>r', ':%s///g<Left><Left><Left>', { noremap = true, silent = true }) -- Replace command
+vim.api.nvim_set_keymap("n", "<leader>z", ":ZenMode<CR>", { noremap = true, silent = true })

@@ -23,7 +23,6 @@ zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
 zinit light softmoth/zsh-vim-mode
 zinit light Aloxaf/fzf-tab
-zinit light laggardkernel/zsh-thefuck
 zinit light ael-code/zsh-colored-man-pages
 zinit light none9632/zsh-sudo
 
@@ -85,7 +84,6 @@ alias arch='pfetch'
 alias gpt='tgpt --multiline'
 alias yt='yt-dlp'
 alias sys='~/.config/niri/sys.sh'
-alias npm='pnpm'
 
 #fzf theme
 export FZF_DEFAULT_OPTS=" \
