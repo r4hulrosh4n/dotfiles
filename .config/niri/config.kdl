@@ -1,4 +1,5 @@
 spawn-at-startup "waybar"
+spawn-at-startup "xwayland-satellite"
 spawn-at-startup "warp-taskbar"
 spawn-at-startup "swaybg" "-i" "/home/rahul/.config/niri/bg/wallpaper.png"
 spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
@@ -12,6 +13,8 @@ workspace "3"
 workspace "4"
 workspace "5"
 workspace "6"
+workspace "7"
+workspace "8"
 
 input {
   keyboard {
@@ -37,7 +40,7 @@ input {
   trackpoint {
     accel-speed 0.0
   }
-focus-follows-mouse
+ focus-follows-mouse
 }
 
 output "eDP-1" {
@@ -48,7 +51,7 @@ output "eDP-1" {
 }
 
 output "HDMI-A-1" {
-  mode "1920x1080@50"
+  mode "1920x1080@60"
   scale 1
   transform "normal"
   position x=1920 y=0
@@ -56,7 +59,7 @@ output "HDMI-A-1" {
 
 layout {
   gaps 12
-  center-focused-column "never"
+  center-focused-column "always"
 
   preset-column-widths {
     proportion 0.25
@@ -65,7 +68,11 @@ layout {
     proportion 1.0
   }
 
-  default-column-width {}
+  preset-window-heights {
+    proportion 0.33333
+    proportion 0.5
+    proportion 0.66667
+  }
 
   focus-ring {
     width 2
@@ -84,17 +91,17 @@ layout {
 cursor {
   xcursor-theme "phinger-cursors-light"
   xcursor-size 24
+  hide-when-typing
 }
 
 environment {
   QT_QPA_PLATFORM "wayland"
-  DISPLAY null
+  DISPLAY ":1"
 }
 
 animations {
     slowdown 0.4
 }
-
 
 prefer-no-csd
 
@@ -104,20 +111,21 @@ hotkey-overlay {
 
 window-rule {
   geometry-corner-radius 8
-  clip-to-geometry true
-}
-
-window-rule {
-  match app-id="spotify"
-  match app-id="brave"
-  match app-id="kitty"
   default-column-width { proportion 0.75; }
+  clip-to-geometry true
   draw-border-with-background false
 }
 
 window-rule {
-   match app-id="Nautilus"
-   default-column-width { proportion 0.5; }
+  match app-id="spotify"
+  match app-id="Blanket"
+  match app-id="Nautilus"
+  default-column-width { proportion 0.5; }
+}
+
+window-rule {
+  match app-id="foot"
+  default-column-width { proportion 0.5; }
 }
 
 binds {
@@ -127,20 +135,21 @@ binds {
   Mod+Shift+W { spawn "sh" "-c" "~/.config/niri/waybar.sh"; }
   Mod+Return { spawn "kitty"; }
   Mod+Space { spawn "~/.config/fuzzel/toggle_fuzzel.sh"; }
+  Mod+Z { spawn "zen-browser"; }
   Mod+M {spawn "sh" "-c" "pkill fuzzel; bemoji";}
+  Mod+Shift+Space { spawn "sh" "-c" "pkill fuzzel; ~/.config/fuzzel/GOOP.sh"; }
+  Mod+T { spawn "sh" "-c" "~/.config/niri/todo.sh"; }
   Mod+B { spawn "sh" "-c" "pkill fuzzel; ~/.config/fuzzel/bluetooth.sh"; }
   Mod+N { spawn "sh" "-c" "pkill fuzzel; ~/.config/fuzzel/network.sh"; }
-  Mod+S { spawn "sh" "-c" "pkill fuzzel; ~/.config/fuzzel/spotify_fuzzel.sh";}
+  Mod+S { spawn "sh" "-c" "pkill fuzzel; ~/.config/fuzzel/spotify.sh";}
   Mod+Q { spawn "sh" "-c" "~/.config/niri/screenrec.sh"; }
-  Mod+Shift+V { spawn "sh" "-c" "~/.config/niri/vpn.sh"; }
-  Mod+Shift+I { spawn "sh" "-c" "~/.config/niri/Week-Wallpaper/script.sh"; }
-  Mod+Shift+C { spawn "wl-color-picker";}
   Mod+A { close-window; }
   Mod+O { spawn "nautilus"; }
   Mod+W { spawn "brave" "--ozone-platform=wayland"; }
-  Mod+Shift+G { spawn "google-chrome-stable" "--ozone-platform=wayland"; }
+  Mod+Shift+V { spawn "sh" "-c" "~/.config/niri/vpn.sh"; }
+  Mod+Shift+B { spawn "sh" "-c" "~/.config/niri/Week-Wallpaper/script.sh"; }
+  Mod+Shift+C { spawn "wl-color-picker";}
   Mod+Semicolon { spawn "swaylock" "--image" ".config/niri/bg/lock.png" "--clock";}
-  Mod+Shift+M { spawn "im.riot.Riot" "--enable-features=UseOzonePlatform" "--ozone-platform=wayland"; }
 
   Mod+1                    { focus-workspace 1; }
   Mod+2                    { focus-workspace 2; }
@@ -197,6 +206,30 @@ binds {
   Mod+Ctrl+Shift+WheelScrollDown cooldown-ms=150 { move-column-right; }
   Mod+Ctrl+Shift+WheelScrollUp cooldown-ms=150 { move-column-left; }
 
+  Mod+Shift+Alt+I         { move-workspace-down; }
+  Mod+Shift+Alt+U         { move-workspace-up; }
+  Mod+Shift+Alt+Page_Down { move-workspace-down; }
+  Mod+Shift+Alt+Page_Up   { move-workspace-up; }
+
+  Mod+Shift+Alt+H     { move-workspace-to-monitor-left; }
+  Mod+Shift+Alt+J     { move-workspace-to-monitor-down; }
+  Mod+Shift+Alt+K     { move-workspace-to-monitor-up; }
+  Mod+Shift+Alt+L     { move-workspace-to-monitor-right; }
+  Mod+Shift+Alt+Left  { move-workspace-to-monitor-left; }
+  Mod+Shift+Alt+Down  { move-workspace-to-monitor-down; }
+  Mod+Shift+Alt+Up    { move-workspace-to-monitor-up; }
+  Mod+Shift+Alt+Right { move-workspace-to-monitor-right; }
+
+  Mod+U              { focus-workspace-down; }
+  Mod+I              { focus-workspace-up; }
+  Mod+Page_Down      { focus-workspace-down; }
+  Mod+Page_Up        { focus-workspace-up; }
+
+  Mod+Shift+U         { move-column-to-workspace-down; }
+  Mod+Shift+I         { move-column-to-workspace-up; }
+  Mod+Shift+Page_Down { move-column-to-workspace-down; }
+  Mod+Shift+Page_Up   { move-column-to-workspace-up; }
+
   Mod+TouchpadScrollDown { spawn "light" "-A" "1"; }
   Mod+TouchpadScrollUp   { spawn "light" "-U" "1"; }
 
@@ -208,7 +241,6 @@ binds {
 
   Mod+Comma  { consume-or-expel-window-left; }
   Mod+Period { consume-or-expel-window-right; }
-
   Mod+R { switch-preset-column-width; }
   Mod+Shift+R { reset-window-height; }
   Mod+F { maximize-column; }

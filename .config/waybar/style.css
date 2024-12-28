@@ -5,43 +5,41 @@
   font-size: 14;
   font-weight: 500;
 }
+
 window#waybar {
   border: 3px;
   background-color: transparent;
   color: rgba(255, 255, 255, 0.85);
-  margin: 5px 5px 2px 5px;
-  border-radius:0px;
+  margin: 0px 5px 2px 5px;
+  border-radius: 0px;
 }
 
-button {
-  background-color: #000;
-  border: 3px;
-  border-radius: 2px;
-  transition: background ease-in-out 0.2s;
-}
-
-button:hover {
-  background: rgba(255, 255, 255, 0.06);
-}
-
-.modules-right widget > * {
+.modules-right widget>* {
   padding: 0 0.8em;
+}
 
+.modules-left widget>* {
+  padding: 0 0.8em 0 0;
 }
 
 widget #tray {
-  font-size: 1; 
-  /*margin-right: 12px;*/
+  font-size: 1;
   padding: 0;
 }
-#custom-spotify {
- margin: 5px 5px 0px 5px;
-  /*background-color: #1e1e2e;*/
-  border-radius: 5px;
-}
 
-#cpu, #power-profiles-daemon, #custom-recording, #memory ,#temperature, #tray, #clock, #backlight, #battery, #network, #pulseaudio {
- margin: 5px 5px 0px 5px;
+#cpu,
+#power-profiles-daemon,
+#custom-recording,
+#memory,
+#temperature,
+#tray,
+#clock,
+#backlight,
+#battery,
+#network,
+#custom-spotify,
+#pulseaudio {
+  margin: 5px 5px 0px 5px;
   /*background-color: #1e1e2e;*/
   border-radius: 5px;
 }

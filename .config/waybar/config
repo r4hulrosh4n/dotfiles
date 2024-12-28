@@ -3,6 +3,7 @@
     "height": 22,
     "spacing": 0,
     "layer": "bottom",
+    //"output": "HDMI-A-1",
     "output": "eDP-1",
     "fixed-center": true,
     "modules-left": ["custom/spotify"],

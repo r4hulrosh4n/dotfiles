@@ -55,9 +55,16 @@ def fuzzel_menu():
     connections = get_connections()
     options = []
 
+    # Add all networks with Wi-Fi icon, marking active ones as "Connected"
     for conn in connections:
-        state = "Connected" if conn["active"] else "Disconnected"
-        options.append(f"{conn['name']} | {state}")
+        if conn["active"]:
+            options.append(f"󰖩 {conn['name']} - Connected")
+        else:
+            options.append(f"󰖩 {conn['name']}")  # No state for disconnected networks
+
+    if not options:  # Handle the case where no networks are found
+        print("No available networks.")
+        return
 
     fuzzel_cmd = subprocess.Popen(['fuzzel', '--dmenu', '--prompt', 'Network:'], 
                                   stdin=subprocess.PIPE, stdout=subprocess.PIPE)
@@ -65,10 +72,12 @@ def fuzzel_menu():
 
     selected = selection.decode().strip()
     if selected:
-        name, state = selected.split(" | ")
-        if state == "Connected":
+        # Handle both connected and disconnected networks
+        if " - Connected" in selected:
+            name = selected.replace("󰖩 ", "").replace(" - Connected", "")
             subprocess.run(["nmcli", "connection", "down", name])
         else:
+            name = selected.replace("󰖩 ", "")
             subprocess.run(["nmcli", "connection", "up", name])
 
 if __name__ == "__main__":
