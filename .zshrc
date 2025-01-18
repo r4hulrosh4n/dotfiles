@@ -58,10 +58,12 @@ alias ...='cd /home/rahul'
 alias ....='cd /'
 alias nv='nvim'
 alias rr='ranger'
-alias ls='exa --icons'
-alias la='exa --icons --long -a'
+alias ls='lsd'
+alias l='ls -l'
+alias la='ls -a'
+alias lla='ls -la'
+alias lt='ls --tree'
 alias cl='clear'
-alias arch='pfetch'
 alias gpt='tgpt --multiline'
 
 export FZF_DEFAULT_OPTS=" \
@@ -72,6 +74,7 @@ export FZF_DEFAULT_OPTS=" \
 . "$HOME/.atuin/bin/env"
 eval "$(fzf --zsh)"
 eval "$(atuin init zsh)"
+eval "$(zoxide init zsh)"
 
 export PATH="$PATH:/home/rahul/.local/bin"
 export PATH="$HOME/.cargo/bin:$PATH"

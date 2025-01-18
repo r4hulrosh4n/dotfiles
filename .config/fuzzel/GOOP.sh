@@ -53,7 +53,7 @@ get_system_info() {
 
 # Collect system information with Material Design icons
 apps="󱓟 Apps"  # App Launcher Icon
-emoji=" Emoji"  # Emoji Icon
+emoji="󱈕 Emoji"  # Emoji Icon
 network="󰤟 Network"  # Network Icon
 warp="󰅣 Warp"  # Warp Icon
 bluetooth="󰂰 Bluetooth"  # Bluetooth Icon
@@ -74,7 +74,7 @@ case "$selection" in
         # Run normal fuzzel when "Apps" is selected
         fuzzel
         ;;
-    " Emoji")
+    "󱈕 Emoji")
         # Run the bemoji program when "Emoji" is selected
         bemoji
         ;;

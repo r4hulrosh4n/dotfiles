@@ -4,9 +4,9 @@ After=default.target
 
 [Service]
 ExecStart=/usr/bin/swayidle -w \
-    timeout 600 '/usr/bin/swaylock --image ~/.config/niri/bg/lock.png --clock & swaymsg "output * dpms off"' \
+    timeout 600 '/usr/bin/swaylock --image ~/.config/niri/bg/wallpaper.png --clock & swaymsg "output * dpms off"' \
     resume 'swaymsg "output * dpms on" && brightnessctl set 100%' \
-    before-sleep '/usr/bin/swaylock --image ~/.config/niri/bg/lock.png --clock'
+    before-sleep '/usr/bin/swaylock --image ~/.config/niri/bg/wallpaper.png --clock'
 Restart=on-failure
 
 [Install]

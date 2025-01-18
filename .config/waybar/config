@@ -3,17 +3,11 @@
     "height": 22,
     "spacing": 0,
     "layer": "bottom",
-    //"output": "HDMI-A-1",
     "output": "eDP-1",
     "fixed-center": true,
     "modules-left": ["custom/spotify"],
     "modules-center": [],
     "modules-right": ["custom/recording", "network", "pulseaudio", "battery", "backlight", "cpu", "memory", "temperature", "clock", "tray"],
-    "sway/window": {
-      "max-length": 50,
-      "max-length-mode": "middle",
-      "tooltip": true
-    },
     "tray": {
       "spacing": 0,
     },

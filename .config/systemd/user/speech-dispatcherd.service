@@ -1,0 +1,11 @@
+[Unit]
+Description=Speech Dispatcher
+After=sound.target
+
+[Service]
+ExecStart=/usr/bin/speech-dispatcher
+Restart=on-failure
+
+[Install]
+WantedBy=default.target
+

@@ -16,7 +16,8 @@ return {
                 "eslint", -- ESLint LSP
                 "html", -- HTML LSP
                 "lua_ls", -- Lua language server
-                "tsserver", -- TypeScript/JavaScript language server
+                -- "tsserver", -- TypeScript/JavaScript language server
+                "ts_ls", -- TypeScript/JavaScript language server
                 "ast_grep", -- Add ast_grep to ensure installed
                 "pyright", -- Python language server
                 "pylsp", -- Python language server
@@ -51,7 +52,10 @@ return {
             lspconfig.lua_ls.setup({
                 capabilities = capabilities,
             })
-            lspconfig.tsserver.setup({
+            -- lspconfig.tsserver.setup({
+            --     capabilities = capabilities,
+            -- })
+            lspconfig.ts_ls.setup({
                 capabilities = capabilities,
             })
             lspconfig.ast_grep.setup({
