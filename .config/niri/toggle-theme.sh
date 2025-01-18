@@ -20,6 +20,7 @@ CATPPUCCIN_LUA="$HOME/.config/nvim/lua/plugins/catppuccin.lua"
 CURRENT_THEME=$(grep -oP 'vim.cmd.colorscheme\("\K[^"]+' "$CATPPUCCIN_LUA")
 
 # Define Fuzzel theme colors
+# DARK_FUZZEL_BACKGROUND="060606FF"
 DARK_FUZZEL_BACKGROUND="060606FF"
 DARK_FUZZEL_BORDER="ffffff1A"
 DARK_FUZZEL_TEXT="f0fdff80"
@@ -42,7 +43,7 @@ LIGHT_FOCUS_RING_INACTIVE_COLOR="hsla(251, 100%, 100%, 0.0)"
 # Define Dunst Colors
 DARK_BACKGROUND="#131313"
 DARK_FOREGROUND="#f0fdff"
-LIGHT_BACKGROUND="#D4D0C7"
+LIGHT_BACKGROUND="#f4f3f3"
 LIGHT_FOREGROUND="#0F0200"
 
 # Function to restart Fuzzel if it's running
@@ -73,6 +74,7 @@ switch_to_light_mode() {
     gsettings set org.gnome.desktop.interface gtk-theme "$LIGHT_GTK"
     gsettings set org.gnome.desktop.interface icon-theme "$LIGHT_ICONS"
     gsettings set org.gnome.desktop.interface color-scheme "prefer-light"
+    gsettings set org.gnome.desktop.interface cursor-theme "phinger-cursors-light"
 
     # Qt
     export QT_QPA_PLATFORMTHEME="gtk2"
@@ -136,6 +138,7 @@ switch_to_dark_mode() {
     gsettings set org.gnome.desktop.interface gtk-theme "$DARK_GTK"
     gsettings set org.gnome.desktop.interface icon-theme "$DARK_ICONS"
     gsettings set org.gnome.desktop.interface color-scheme "prefer-dark"
+    gsettings set org.gnome.desktop.interface cursor-theme "phinger-cursors-light"
 
     # Qt
     export QT_QPA_PLATFORMTHEME="gtk2"

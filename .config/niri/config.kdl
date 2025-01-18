@@ -135,7 +135,6 @@ window-rule {
 }
 
 animations {
-  slowdown 1.4
   workspace-switch {
     spring damping-ratio=1.0 stiffness=2000 epsilon=0.0001
   }
@@ -187,8 +186,7 @@ binds {
   Mod+Shift+W { spawn "sh" "-c" "~/.config/niri/waybar.sh"; }
   Mod+Return { spawn "kitty"; }
   Mod+Space { spawn "~/.config/fuzzel/toggle_fuzzel.sh"; }
-  Mod+T { spawn "~/.config/niri/toggle-theme.sh"; }
-  Mod+Z { spawn "zen-browser"; }
+  //Mod+Shift+T { spawn "~/.config/niri/toggle-theme.sh"; }
   Mod+M {spawn "sh" "-c" "pkill fuzzel; bemoji";}
   Mod+Shift+Space { spawn "sh" "-c" "pkill fuzzel; ~/.config/fuzzel/GOOP.sh"; }
   Mod+B { spawn "sh" "-c" "pkill fuzzel; ~/.config/fuzzel/bluetooth.sh"; }
@@ -198,7 +196,6 @@ binds {
   Mod+A { close-window; }
   Mod+O { spawn "nautilus"; }
   Mod+W { spawn "brave" "--ozone-platform=wayland"; }
-  //Mod+W { spawn "zen-browser"; }
   Mod+Shift+V { spawn "sh" "-c" "~/.config/niri/vpn.sh"; }
   Mod+Shift+C { spawn "wl-color-picker";}
   Mod+Semicolon { spawn "swaylock" "--image" ".config/niri/bg/wallpaper-dark.png" "--clock";}
@@ -298,8 +295,8 @@ binds {
   Mod+R { switch-preset-column-width; }
   Mod+Shift+R { reset-window-height; }
   Mod+F { maximize-column; }
-  Mod+Shift+Y { toggle-window-floating; } 
-  Mod+Y { switch-focus-between-floating-and-tiling; }
+  //Mod+Shift+Y { toggle-window-floating; } 
+  //Mod+Y { switch-focus-between-floating-and-tiling; }
   Mod+Shift+F { fullscreen-window; }
   Mod+C { center-column; }
 

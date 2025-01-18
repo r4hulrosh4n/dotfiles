@@ -48,6 +48,7 @@ switch_to_dark_mode() {
     gsettings set org.gnome.desktop.interface gtk-theme "$DARK_GTK"
     gsettings set org.gnome.desktop.interface icon-theme "$DARK_ICONS"
     gsettings set org.gnome.desktop.interface color-scheme "prefer-dark"
+    gsettings set org.gnome.desktop.interface cursor-theme "phinger-cursors-light"
 
     # Kitty
     kitty +kitten themes --reload-in=all "$DARK_KITTY"
@@ -99,4 +100,3 @@ switch_to_dark_mode() {
 
 # Execute Dark Mode setup
 switch_to_dark_mode
-

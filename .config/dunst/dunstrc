@@ -55,7 +55,7 @@
     mouse_right_click = close_all
 
 [urgency_normal]
-    background = "#D4D0C7"
+    background = "#f4f3f3"
     foreground = "#0F0200"
     timeout = 10
 
