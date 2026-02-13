@@ -1,9 +1,10 @@
-theme: catppuccin-mocha
+# theme: textual-dark
+theme: black-metal
 editor: nvim
 layout: horizontal
 response:
   prettify_json: false
 heading:
-  visible: true
+  visible: false
   show_host: false
 

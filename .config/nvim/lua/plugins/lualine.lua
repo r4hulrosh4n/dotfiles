@@ -1,23 +1,13 @@
--- ~/.config/nvim/lua/plugins/lualine.lua
 return {
   {
     'nvim-lualine/lualine.nvim',
     dependencies = { 'nvim-tree/nvim-web-devicons' },
     config = function()
-      local catppuccin = require'lualine.themes.catppuccin'
-
-      -- Customize the theme if necessary
-      -- Example: Change the background of lualine_c section for normal mode
-      -- custom_catppuccin.normal.c.bg = '#112233'
-
       require('lualine').setup {
         options = {
           icons_enabled = true,
-          theme = catppuccin,
-          --component_separators = { left = '', right = ''},
           component_separators = { left = '|', right = '|'},
           section_separators = { left = ' ', right = ''},
-          -- section_separators = { left = '', right = ''},          
 
           disabled_filetypes = {
             statusline = {},

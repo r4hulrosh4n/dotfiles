@@ -1,35 +1,45 @@
 {
   "position": "top",
-    "height": 22,
+    "height": 0,
     "spacing": 0,
-    "layer": "bottom",
+    "layer": "top",
     "output": "eDP-1",
     "fixed-center": true,
-    "modules-left": ["custom/spotify"],
-    "modules-center": [],
-    "modules-right": ["custom/recording", "network", "pulseaudio", "battery", "backlight", "cpu", "memory", "temperature", "clock", "tray"],
+
+    "modules-right": ["custom/recording", "network", "pulseaudio", "battery", "backlight", "cpu", "memory", "temperature", "power-profiles-daemon", "clock", "tray"],
+
     "tray": {
       "spacing": 0,
     },
-    "clock": {
-    "timezone": "Asia/Kolkata",
-    "format": "󰅐 {:%a %I:%M %p}",
-    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-    "format-alt": "󰅐 {:%a %d.%m.%Y %I:%M %p}"
+
+    "custom/media": {
+      "exec": "p=$(playerctl -l 2>/dev/null | while read -r pl; do playerctl --player=\"$pl\" status 2>/dev/null | grep -q Playing && echo \"$pl\" && break; done); [ -z \"$p\" ] && p=$(playerctl -l 2>/dev/null | head -n1); [ -z \"$p\" ] && exit 0; s=$(playerctl --player=\"$p\" status 2>/dev/null); t=$(playerctl --player=\"$p\" metadata --format '{{title}}' 2>/dev/null); [ -z \"$t\" ] && exit 0; [ ${#t} -gt 35 ] && t=\"${t:0:35}...\"; if [ \"$s\" = \"Playing\" ]; then echo \"󰌳 $t\"; elif [ \"$s\" = \"Paused\" ]; then echo \"󰼄 $t\"; else echo \"$t\"; fi",
+      "interval": 2
     },
+
+    "clock": {
+      "timezone": "Asia/Kolkata",
+      "format": "󰙹 {:%a %I:%M %p}",
+      "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+      "format-alt": " {:%a %d.%m.%Y %I:%M %p}"
+    },
+
     "cpu": {
       "format": "󰍛 {usage}%",
       "tooltip": true
     },
+
     "memory": {
       "format": "󰘚 {}%"
     },
+
     "temperature": {
       "critical-threshold": 70,
       "interval": 3,
       "format": "{icon} {temperatureC}°C",
       "format-icons": ["󱃃", "󰔏", "󱃂"]
     },
+
     "backlight": {
       "format": "{icon} {percent}%",
       "format-icons": ["󰛩", "󱩎", "󱩏", "󱩐", "󱩑", "󱩒", "󱩓", "󱩔", "󱩕", "󱩖", "󰛨"],
@@ -37,6 +47,7 @@
       "on-scroll-up": "brightnessctl set +5%",
       "on-scroll-down": "brightnessctl set 5%-"
     },
+
     "battery": {
       "interval": 10,
       "states": {
@@ -46,6 +57,7 @@
       "format-charging": "󰂄 {capacity}%",
       "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
     },
+
     "network": {
       "format-wifi": "{icon} {essid}",
       "tooltip-format-wifi": "Signal strength: {signalStrength}%\nLocal IP: {ipaddr}\nGateway: {gwaddr}",
@@ -56,6 +68,7 @@
       "format-alt": "{ipaddr}/{cidr} - {bandwidthDownBits}",
       "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"]
     },
+
     "pulseaudio": {
       "scroll-step": 1,
       "format": "{icon} {volume}% {format_source}",
@@ -75,31 +88,31 @@
       "on-click-middle": "pavucontrol",
       "on-click-right": "pactl set-source-mute 0 toggle"
     },
+
     "power-profiles-daemon": {
       "format": "{icon}",
       "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
       "tooltip": true,
       "format-icons": {
-      "default": "󱐋",
-      "performance": "󱐋 High",
-      "balanced": "󱓝 Base",
-      "power-saver": "󰌪 Save"
+        "default": "󱐋",
+        "performance": "󱐋 High",
+        "balanced": "󱓝 Base",
+        "power-saver": "󰌪 Save"
       }  
     },
+
     "custom/recording": {
       "exec": "pgrep wl-screenrec > /dev/null && echo '󰻃 REC' || echo ''",
       "interval": 2
     },
-    "custom/spotify": {
-        "exec": "~/.config/niri/spotify_waybar.sh",
-        "interval": 1,
-        "on-click-left": "playerctl -p spotify play-pause",
-        "on-click-right": "playerctl -p spotify next",
-        "on-click-middle": "playerctl -p spotify previous",
-        "on-click": "playerctl -p spotify play-pause",
-        "on-scroll-up": "playerctl -p spotify volume 0.05+",
-        "on-scroll-down": "playerctl -p spotify volume 0.05-",
-        "tooltip": false
-    }
-}
 
+    "bluetooth": {
+      "format": "",
+      "format-connected": "󰂯 {device_alias}",
+      "format-connected-battery": "󰂯 {device_alias} {device_battery_percentage}%",
+      "tooltip-format": "{device_enumerate}",
+      "tooltip-format-connected": "{device_enumerate}",
+      "tooltip-format-enumerate-connected": "{device_alias}",
+      "tooltip-format-enumerate-connected-battery": "{device_alias} ({device_battery_percentage}%)"
+    },
+}

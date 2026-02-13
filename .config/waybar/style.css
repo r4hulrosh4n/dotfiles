@@ -1,32 +1,25 @@
 * {
-  font-family:
-    JetBrainsMono Nerd Font,
-    sans-serif;
-  font-size: 14;
-  font-weight: 500;
+  font-family: "JetBrainsMono Nerd Font", sans-serif;
+  font-size: 14px;
 }
 
 window#waybar {
-  border: 3px;
-  background-color: transparent;
+  margin: 0 5px 2px;
+  background: transparent;
   color: rgba(255, 255, 255, 0.85);
-  margin: 0px 5px 2px 5px;
-  border-radius: 0px;
 }
 
+/* .modules-left, */
+/* .modules-right { */
+/*   padding: 0 0.5em; */
+/* } */
+
+.modules-left widget>*,
 .modules-right widget>* {
   padding: 0 0.8em;
 }
 
-.modules-left widget>* {
-  padding: 0 0.8em 0 0;
-}
-
-widget #tray {
-  font-size: 1;
-  padding: 0;
-}
-
+#custom-media,
 #cpu,
 #power-profiles-daemon,
 #custom-recording,
@@ -37,13 +30,26 @@ widget #tray {
 #backlight,
 #battery,
 #network,
-#custom-spotify,
-#pulseaudio {
-  margin: 5px 5px 0px 5px;
-  /*background-color: #1e1e2e;*/
+#workspaces,
+#pulseaudio,
+#custom-cava,
+#bluetooth {
   border-radius: 5px;
+  /* background-color: #121212; */
+  margin: 5px 5px 0px 5px;
+}
+
+#tray {
+  font-size: 1;
+  padding: 0;
 }
 
 #battery.critical {
   background: rgba(218, 88, 88, 0.3);
+}
+
+tooltip {
+  border-radius: 8px;
+  background: rgba(20, 20, 20, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }

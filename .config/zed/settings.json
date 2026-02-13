@@ -1,7 +1,21 @@
 {
+  "relative_line_numbers": "enabled",
+  /* Duplicated key auto-commented: "agent": {
+    "default_model": {
+      "provider": "copilot_chat",
+      "model": "gpt-5-mini"
+    },
+    "model_parameters": []
+  }, */
+  "agent": {
+    "default_model": {
+      "provider": "copilot_chat",
+      "model": "claude-3-5-sonnet"
+    },
+  },
   "auto_update": false,
   "buffer_font_family": "JetBrains Mono",
-  "buffer_font_size": 14,
+  "buffer_font_size": 14.0,
   "buffer_font_weight": 200,
   "vim_mode": true,
   "drop_target_size": 0.33,
@@ -20,13 +34,13 @@
     "rust-analyzer": {
       "initialization_options": {
         "check": {
-          "command": "clippy" // rust-analyzer.check.command (default: "check")
+          "command": "clippy"
         }
       }
     }
   },
   "preview_tabs": {
-    "enable_preview_from_code_navigation": true,
+    "enable_keep_preview_on_code_navigation": true,
     "enable_preview_from_file_finder": true
   },
   "project_panel": {
@@ -52,7 +66,7 @@
     }
   },
   "theme": {
-    "mode": "system",
+    "mode": "dark",
     "light": "One Light",
     "dark": "Phine"
   },

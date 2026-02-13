@@ -1,0 +1,249 @@
+// This configuration is merged with the default vicinae configuration file, which you can obtain by running the `vicinae config default` command.
+// Every item defined in this file takes precedence over the values defined in the default config or any other imported file.
+//
+// You can make manual edits to this file, however you should keep in mind that this file may be written to by vicinae when a configuration change is made through the GUI.
+// When that happens, any custom comments or formatting will be lost.
+//
+// If you want to maintain a configuration file with your own comments and formatting, you should create a separate file and add it to the 'imports' array.
+//
+// Learn more about configuration at https://docs.vicinae.com/config
+
+{
+   "$schema": "https://vicinae.com/schemas/config.json",
+   "close_on_focus_loss": false,
+   "search_files_in_root": false,
+   "font": {
+      "normal": {
+         "size": 10.5
+      }
+   },
+   "launcher_window": {
+      "opacity": 1,
+      "client_side_decorations": {
+         "enabled": true
+      },
+      "layer_shell": {
+         "enabled": true,
+         "keyboard_interactivity": "exclusive",
+         "layer": "overlay"
+      }
+   },
+   "favorites": [],
+   "providers": {
+      "@Gelei/store.vicinae.bluetooth": {
+         "enabled": true,
+         "preferences": {
+            "connectionToggleable": false
+         },
+         "entrypoints": {
+            "devices": {
+               "enabled": true
+            },
+            "discoverable": {
+               "enabled": false
+            },
+            "scan": {
+          "enabled": true
+        }
+      }
+    },
+
+  "@dagimg-dot/store.vicinae.wifi-commander": {
+    "enabled": true,
+    "entrypoints": {
+      "manage-saved-networks": {
+        "enabled": true
+      },
+      "restart-wifi": {
+        "enabled": false
+            },
+            "scan-wifi": {
+               "enabled": true
+            },
+            "toggle-wifi-off": {
+               "enabled": false
+            },
+            "toggle-wifi-on": {
+               "enabled": false
+            }
+         }
+      },
+      "applications": {
+         "preferences": {
+            "paths": [
+               "/home/rahul/.local/share/applications",
+               "/var/lib/flatpak/exports/share/applications",
+               "/usr/share/applications"
+            ]
+         },
+         "entrypoints": {
+            "assistant": {
+               "enabled": false
+            },
+            "avahi-discover": {
+               "enabled": false
+            },
+            "bssh": {
+               "enabled": false
+            },
+            "bvnc": {
+               "enabled": false
+            },
+            "com.cloudflare.WarpTaskbar": {
+               "enabled": false
+            },
+            "linguist": {
+               "enabled": false
+            },
+            "org.freedesktop.IBus.Setup": {
+               "enabled": false
+            },
+            "qdbusviewer": {
+               "enabled": false
+            },
+            "qvidcap": {
+               "enabled": false
+            },
+            "xgps": {
+               "enabled": false
+            },
+            "xgpsspeed": {
+               "enabled": false
+            }
+         }
+      },
+      "browser-extension": {
+         "enabled": false,
+         "entrypoints": {
+            "shortcut-active-tab": {
+               "enabled": false
+            }
+         }
+      },
+      "calculator": {
+         "enabled": false
+      },
+      "clipboard": {
+         "entrypoints": {
+            "clear": {
+               "enabled": false
+            },
+            "clear-history": {
+               "enabled": false
+            }
+         }
+      },
+      "core": {
+         "entrypoints": {
+            "about": {
+               "enabled": false
+            },
+            "documentation": {
+               "enabled": false
+            },
+            "keybind-settings": {
+               "enabled": true
+            },
+            "list-extensions": {
+               "enabled": true
+            },
+            "manage-fallback": {
+               "enabled": false
+            },
+            "oauth-token-store": {
+               "enabled": false
+            },
+            "open-config-file": {
+               "enabled": false
+            },
+            "open-default-config": {
+               "enabled": false
+            },
+            "prune-memory": {
+               "enabled": false
+            },
+            "refresh-apps": {
+               "enabled": false
+            },
+            "reload-scripts": {
+               "enabled": false
+            },
+            "report-bug": {
+               "enabled": false
+            },
+            "search-builtin-icons": {
+               "enabled": false
+            },
+            "search-emojis": {
+               "enabled": false
+            },
+            "sponsor": {
+               "enabled": false
+            },
+            "store": {
+               "enabled": true
+            }
+         }
+      },
+      "developer": {
+         "enabled": false
+      },
+      "files": {
+         "enabled": false,
+         "entrypoints": {
+            "rebuild-index": {
+               "enabled": false
+            }
+         }
+      },
+      "font": {
+         "enabled": false
+      },
+      "manage-shortcuts": {
+         "enabled": false
+      },
+      "power": {
+         "enabled": false,
+         "entrypoints": {
+            "hibernate": {
+               "enabled": false
+            },
+            "logout": {
+               "enabled": false
+            },
+            "reboot": {
+               "enabled": true
+            },
+            "sleep": {
+               "enabled": false
+            },
+            "soft-reboot": {
+               "enabled": false
+            },
+            "suspend": {
+               "enabled": false
+            }
+         }
+      },
+      "raycast-compat": {
+         "enabled": true
+      },
+      "system": {
+         "enabled": false,
+         "entrypoints": {
+            "browse-apps": {
+               "enabled": false
+            },
+            "run": {
+               "enabled": true
+            }
+         }
+      },
+      "theme": {
+         "enabled": false
+      },
+      "wm": {
+         "enabled": false
+      }
+   }
+}

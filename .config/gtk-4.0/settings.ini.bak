@@ -1,0 +1,7 @@
+[Settings]
+gtk-theme-name=Colloid-Dark
+gtk-icon-theme-name=Colloid-dark
+gtk-font-name=Sans 11
+gtk-cursor-theme-name=phinger-cursors-light
+gtk-cursor-theme-size=24
+gtk-application-prefer-dark-theme=1
